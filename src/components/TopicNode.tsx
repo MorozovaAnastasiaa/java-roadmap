@@ -1,5 +1,7 @@
+import type { CSSProperties } from 'react';
 import type { Topic } from '../types';
 import { useAppStore } from '../store/useAppStore';
+import { STATUS_COLORS } from '../constants/colors';
 
 interface TopicNodeProps {
   topic: Topic;
@@ -7,9 +9,27 @@ interface TopicNodeProps {
 
 export const TopicNode = ({ topic }: TopicNodeProps) => {
   const selectTopic = useAppStore((state) => state.selectTopic);
+  const progress = useAppStore((state) => state.progress);
+  const status = progress[topic.id] || 'not_started';
+  const colors = STATUS_COLORS[status];
 
   const handleClick = () => {
     selectTopic(topic.id);
+  };
+
+  // Заменяем transparent на #262626 (цвет фона карточки) для not_started,
+  // чтобы обеспечить видимость на тёмном фоне #141414
+  const baseBackground = colors.background === 'transparent' ? '#262626' : colors.background;
+
+  const style: CSSProperties = {
+    padding: '12px 16px',
+    marginBottom: '8px',
+    borderRadius: '8px',
+    backgroundColor: baseBackground,
+    border: `2px solid ${colors.border}`,
+    boxShadow: colors.glow,
+    cursor: 'pointer',
+    transition: 'all 0.15s ease-in-out',
   };
 
   return (
@@ -25,25 +45,15 @@ export const TopicNode = ({ topic }: TopicNodeProps) => {
       tabIndex={0}
       role="button"
       aria-label={`Тема: ${topic.name}`}
-      style={{
-        padding: '12px 16px',
-        marginBottom: '8px',
-        borderRadius: '8px',
-        backgroundColor: '#262626',
-        border: '1px solid #434343',
-        cursor: 'pointer',
-        transition: 'all 0.2s ease',
-      }}
+      style={style}
       onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = '#303030';
-        e.currentTarget.style.borderColor = '#595959';
+        e.currentTarget.style.filter = 'brightness(1.2)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = '#262626';
-        e.currentTarget.style.borderColor = '#434343';
+        e.currentTarget.style.filter = 'none';
       }}
     >
-      <span style={{ color: '#d9d9d9', fontSize: '14px' }}>{topic.name}</span>
+      <span style={{ color: '#E5E7EB', fontSize: '14px' }}>{topic.name}</span>
     </div>
   );
 };

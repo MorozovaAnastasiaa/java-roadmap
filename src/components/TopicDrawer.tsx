@@ -22,9 +22,13 @@ export const TopicDrawer = () => {
     : 'not_started';
 
   const handleStatusChange = (value: string) => {
-    if (selectedTopic) {
-      setProgress(selectedTopic, value as ProgressStatus);
+    if (selectedTopic && isValidProgressStatus(value)) {
+      setProgress(selectedTopic, value);
     }
+  };
+
+  const isValidProgressStatus = (value: string): value is ProgressStatus => {
+    return ['not_started', 'in_progress', 'learned', 'confident'].includes(value);
   };
 
   return (
