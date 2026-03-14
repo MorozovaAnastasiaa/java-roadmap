@@ -46,12 +46,6 @@ export const TopicNode = ({ topic }: TopicNodeProps) => {
       role="button"
       aria-label={`Тема: ${topic.name}`}
       style={style}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.filter = 'brightness(1.2)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.filter = 'none';
-      }}
     >
       <span style={{ color: '#E5E7EB', fontSize: '14px' }}>{topic.name}</span>
     </div>

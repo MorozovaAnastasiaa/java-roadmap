@@ -1,6 +1,6 @@
 import type { ProgressStatus } from '../types';
 
-interface StatusColor {
+export interface StatusColor {
   border: string;
   glow: string;
   background: string;

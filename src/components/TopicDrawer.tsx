@@ -3,12 +3,24 @@ import { useAppStore } from '../store/useAppStore';
 import { CATEGORIES } from '../data';
 import type { ProgressStatus } from '../types';
 
-const STATUS_OPTIONS = [
-  { label: 'Не начато', value: 'not_started' },
-  { label: 'В процессе', value: 'in_progress' },
-  { label: 'Изучено', value: 'learned' },
-  { label: 'Уверенно', value: 'confident' },
-];
+// Single source of truth for status options - derived from ProgressStatus type
+const PROGRESS_STATUS_VALUES: ProgressStatus[] = ['not_started', 'in_progress', 'learned', 'confident'];
+
+const STATUS_LABELS: Record<ProgressStatus, string> = {
+  not_started: 'Не начато',
+  in_progress: 'В процессе',
+  learned: 'Изучено',
+  confident: 'Уверенно',
+};
+
+const STATUS_OPTIONS = PROGRESS_STATUS_VALUES.map((value) => ({
+  label: STATUS_LABELS[value],
+  value,
+}));
+
+const isValidProgressStatus = (value: string): value is ProgressStatus => {
+  return PROGRESS_STATUS_VALUES.includes(value as ProgressStatus);
+};
 
 export const TopicDrawer = () => {
   const { selectedTopic, selectTopic, progress, setProgress } = useAppStore();
@@ -27,10 +39,6 @@ export const TopicDrawer = () => {
     }
   };
 
-  const isValidProgressStatus = (value: string): value is ProgressStatus => {
-    return ['not_started', 'in_progress', 'learned', 'confident'].includes(value);
-  };
-
   return (
     <Drawer
       title={topic?.name || ''}
@@ -44,6 +52,7 @@ export const TopicDrawer = () => {
         value={currentStatus}
         onChange={handleStatusChange}
         block
+        aria-label="Выберите статус изучения темы"
       />
     </Drawer>
   );
