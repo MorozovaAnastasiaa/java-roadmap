@@ -6,6 +6,9 @@ export interface StatusColor {
   background: string;
 }
 
+// Мета-информация: счётчики, нумерация, вспомогательный текст
+export const META_TEXT_COLOR = '#6B7280';
+
 export const STATUS_COLORS: Record<ProgressStatus, StatusColor> = {
   not_started: {
     border: '#6B7280',

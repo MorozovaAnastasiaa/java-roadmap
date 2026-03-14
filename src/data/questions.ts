@@ -452,3 +452,14 @@ export const QUESTIONS: Question[] = [
 export const getQuestionsByTopicId = (topicId: string): Question[] => {
   return QUESTIONS.filter((q) => q.topicId === topicId);
 };
+
+// Precomputed question counts per topic - eliminates repeated filtering
+// Computed once at module load time for O(1) access
+const questionCountsByTopic = QUESTIONS.reduce<Record<string, number>>((acc, q) => {
+  acc[q.topicId] = (acc[q.topicId] || 0) + 1;
+  return acc;
+}, {});
+
+export const getQuestionCountByTopicId = (topicId: string): number => {
+  return questionCountsByTopic[topicId] || 0;
+};

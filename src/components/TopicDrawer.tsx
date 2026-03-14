@@ -1,7 +1,10 @@
-import { Drawer, Segmented, Card } from 'antd';
+import { Drawer, Segmented, Card, Typography } from 'antd';
 import { useAppStore } from '../store/useAppStore';
 import { CATEGORIES, getQuestionsByTopicId } from '../data';
+import { META_TEXT_COLOR } from '../constants/colors';
 import type { ProgressStatus } from '../types';
+
+const { Text } = Typography;
 
 // Single source of truth for status options - derived from ProgressStatus type
 const PROGRESS_STATUS_VALUES: ProgressStatus[] = ['not_started', 'in_progress', 'learned', 'confident'];
@@ -57,40 +60,55 @@ export const TopicDrawer = () => {
         aria-label="Выберите статус изучения темы"
       />
 
-      {questions.length > 0 && (
-        <div
-          style={{
-            marginTop: 24,
-            maxHeight: 'calc(100vh - 200px)',
-            overflowY: 'auto',
-          }}
-        >
-          {questions.map((question, index) => (
-            <Card key={question.id} size="small" style={{ marginBottom: 12 }}>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  gap: '12px',
-                }}
-              >
-                <span>{question.text}</span>
-                <span
-                  style={{
-                    color: '#6B7280',
-                    fontSize: '12px',
-                    whiteSpace: 'nowrap',
-                    flexShrink: 0,
-                  }}
-                >
-                  {index + 1}/{questions.length}
-                </span>
-              </div>
-            </Card>
-          ))}
-        </div>
-      )}
+      <div
+        role="region"
+        aria-label="Вопросы для собеседования"
+        style={{
+          marginTop: 24,
+          maxHeight: 'calc(100vh - 200px)',
+          overflowY: 'auto',
+        }}
+      >
+        {questions.length > 0 ? (
+          <ul
+            role="list"
+            aria-label={`${questions.length} вопросов по теме`}
+            style={{ listStyle: 'none', margin: 0, padding: 0 }}
+          >
+            {questions.map((question, index) => (
+              <li key={question.id} role="listitem">
+                <Card size="small" style={{ marginBottom: 12 }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'flex-start',
+                      gap: '12px',
+                    }}
+                  >
+                    <span>{question.text}</span>
+                    <span
+                      aria-label={`Вопрос ${index + 1} из ${questions.length}`}
+                      style={{
+                        color: META_TEXT_COLOR,
+                        fontSize: '12px',
+                        whiteSpace: 'nowrap',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {index + 1}/{questions.length}
+                    </span>
+                  </div>
+                </Card>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <Text type="secondary" style={{ display: 'block', textAlign: 'center' }}>
+            Для этой темы вопросов пока нет
+          </Text>
+        )}
+      </div>
     </Drawer>
   );
 };
