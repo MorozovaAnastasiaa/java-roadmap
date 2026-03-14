@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import type { Topic } from '../types';
 import { useAppStore } from '../store/useAppStore';
 import { STATUS_COLORS } from '../constants/colors';
+import { getQuestionsByTopicId } from '../data/questions';
 
 interface TopicNodeProps {
   topic: Topic;
@@ -12,6 +13,7 @@ export const TopicNode = ({ topic }: TopicNodeProps) => {
   const progress = useAppStore((state) => state.progress);
   const status = progress[topic.id] || 'not_started';
   const colors = STATUS_COLORS[status];
+  const questionCount = getQuestionsByTopicId(topic.id).length;
 
   const handleClick = () => {
     selectTopic(topic.id);
@@ -48,6 +50,16 @@ export const TopicNode = ({ topic }: TopicNodeProps) => {
       style={style}
     >
       <span style={{ color: '#E5E7EB', fontSize: '14px' }}>{topic.name}</span>
+      {questionCount > 0 && (
+        <span style={{
+          marginLeft: '8px',
+          color: '#6B7280',
+          fontSize: '12px',
+          fontWeight: 400,
+        }}>
+          {questionCount}
+        </span>
+      )}
     </div>
   );
 };
