@@ -1,6 +1,6 @@
-import { Drawer, Segmented } from 'antd';
+import { Drawer, Segmented, Card } from 'antd';
 import { useAppStore } from '../store/useAppStore';
-import { CATEGORIES } from '../data';
+import { CATEGORIES, getQuestionsByTopicId } from '../data';
 import type { ProgressStatus } from '../types';
 
 // Single source of truth for status options - derived from ProgressStatus type
@@ -33,6 +33,8 @@ export const TopicDrawer = () => {
     ? progress[selectedTopic] || 'not_started'
     : 'not_started';
 
+  const questions = selectedTopic ? getQuestionsByTopicId(selectedTopic) : [];
+
   const handleStatusChange = (value: string) => {
     if (selectedTopic && isValidProgressStatus(value)) {
       setProgress(selectedTopic, value);
@@ -54,6 +56,22 @@ export const TopicDrawer = () => {
         block
         aria-label="Выберите статус изучения темы"
       />
+
+      {questions.length > 0 && (
+        <div
+          style={{
+            marginTop: 24,
+            maxHeight: 'calc(100vh - 200px)',
+            overflowY: 'auto',
+          }}
+        >
+          {questions.map((question) => (
+            <Card key={question.id} size="small" style={{ marginBottom: 12 }}>
+              {question.text}
+            </Card>
+          ))}
+        </div>
+      )}
     </Drawer>
   );
 };
