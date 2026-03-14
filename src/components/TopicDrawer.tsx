@@ -65,9 +65,28 @@ export const TopicDrawer = () => {
             overflowY: 'auto',
           }}
         >
-          {questions.map((question) => (
+          {questions.map((question, index) => (
             <Card key={question.id} size="small" style={{ marginBottom: 12 }}>
-              {question.text}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  gap: '12px',
+                }}
+              >
+                <span>{question.text}</span>
+                <span
+                  style={{
+                    color: '#6B7280',
+                    fontSize: '12px',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                  }}
+                >
+                  {index + 1}/{questions.length}
+                </span>
+              </div>
             </Card>
           ))}
         </div>
