@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import type { ProgressStatus } from '../types';
+import { getChildrenIds } from '../utils/getChildrenIds';
 
 interface AppState {
   // State
@@ -31,9 +32,20 @@ export const useAppStore = create<AppState>()(
         if (import.meta.env.DEV) {
           console.log(`[persist] setProgress: ${topicId} → ${status}`);
         }
-        set((state) => ({
-          progress: { ...state.progress, [topicId]: status },
-        }));
+        // Получаем все дочерние ID для каскадного обновления
+        const childrenIds = getChildrenIds(topicId);
+
+        set((state) => {
+          const newProgress = { ...state.progress, [topicId]: status };
+          // Обновляем статус всех дочерних элементов
+          for (const childId of childrenIds) {
+            newProgress[childId] = status;
+          }
+          if (import.meta.env.DEV && childrenIds.length > 0) {
+            console.log(`[persist] cascade update: ${childrenIds.length} children`);
+          }
+          return { progress: newProgress };
+        });
       },
 
       selectTopic: (topicId) =>
