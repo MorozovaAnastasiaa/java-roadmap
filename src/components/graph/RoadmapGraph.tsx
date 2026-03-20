@@ -32,7 +32,7 @@ const defaultEdgeOptions = {
 export const RoadmapGraph = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
+  const [, setExpandedCategories] = useState<Set<string>>(new Set());
 
   const toggleCategory = useCallback((categoryId: string) => {
     setExpandedCategories((prev) => {
@@ -112,7 +112,7 @@ export const RoadmapGraph = () => {
     });
   }, [nodes, setNodes, setEdges]);
 
-  const handleNodeClick = useCallback((event: React.MouseEvent, node: Node<TopicNodeData>) => {
+  const handleNodeClick = useCallback((_event: React.MouseEvent, node: Node<TopicNodeData>) => {
     if (node.data.type === 'category') {
       toggleCategory(node.id);
     }

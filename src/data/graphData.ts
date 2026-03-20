@@ -43,36 +43,6 @@ const categoryNodes: Node<TopicNodeData>[] = [
   { id: 'generics-records', type: 'topicNode', position: { x: 800, y: 840 }, data: { label: 'Generics и Records', type: 'category' } },
 ];
 
-// Topic/Subtopic nodes for each category
-const subtopicNodes: Node<TopicNodeData>[] = [
-  // === Базы данных / SQL ===
-  { id: 'db-indexes', type: 'topicNode', position: { x: -200, y: 100 }, data: { label: 'Индексы', type: 'topic', topicId: 'db-indexes' } },
-  { id: 'db-btree', type: 'topicNode', position: { x: -350, y: 80 }, data: { label: 'B-tree', type: 'subtopic', topicId: 'db-btree' } },
-  { id: 'db-composite-index', type: 'topicNode', position: { x: -350, y: 110 }, data: { label: 'Составной индекс', type: 'subtopic', topicId: 'db-composite-index' } },
-  { id: 'db-cardinality', type: 'topicNode', position: { x: -350, y: 140 }, data: { label: 'Кардинальность', type: 'subtopic', topicId: 'db-cardinality' } },
-
-  { id: 'db-join', type: 'topicNode', position: { x: -200, y: 160 }, data: { label: 'JOIN', type: 'topic', topicId: 'db-join' } },
-  { id: 'db-inner-join', type: 'topicNode', position: { x: -350, y: 170 }, data: { label: 'INNER JOIN', type: 'subtopic', topicId: 'db-inner-join' } },
-  { id: 'db-left-join', type: 'topicNode', position: { x: -350, y: 200 }, data: { label: 'LEFT JOIN', type: 'subtopic', topicId: 'db-left-join' } },
-  { id: 'db-subquery', type: 'topicNode', position: { x: -350, y: 230 }, data: { label: 'Подзапросы', type: 'subtopic', topicId: 'db-subquery' } },
-  { id: 'db-correlated', type: 'topicNode', position: { x: -350, y: 260 }, data: { label: 'Коррелированный подзапрос', type: 'subtopic', topicId: 'db-correlated' } },
-
-  { id: 'db-grouping', type: 'topicNode', position: { x: -200, y: 220 }, data: { label: 'Группировка', type: 'topic', topicId: 'db-grouping' } },
-  { id: 'db-where-having', type: 'topicNode', position: { x: -350, y: 290 }, data: { label: 'WHERE vs HAVING', type: 'subtopic', topicId: 'db-where-having' } },
-  { id: 'db-group-by', type: 'topicNode', position: { x: -350, y: 320 }, data: { label: 'GROUP BY', type: 'subtopic', topicId: 'db-group-by' } },
-
-  { id: 'db-window', type: 'topicNode', position: { x: -200, y: 280 }, data: { label: 'Оконные функции', type: 'topic', topicId: 'db-window' } },
-  { id: 'db-row-number', type: 'topicNode', position: { x: -350, y: 350 }, data: { label: 'ROW_NUMBER()', type: 'subtopic', topicId: 'db-row-number' } },
-  { id: 'db-rank', type: 'topicNode', position: { x: -350, y: 380 }, data: { label: 'RANK()', type: 'subtopic', topicId: 'db-rank' } },
-  { id: 'db-dense-rank', type: 'topicNode', position: { x: -350, y: 410 }, data: { label: 'DENSE_RANK()', type: 'subtopic', topicId: 'db-dense-rank' } },
-
-  { id: 'db-postgres', type: 'topicNode', position: { x: -200, y: 340 }, data: { label: 'PostgreSQL', type: 'topic', topicId: 'db-postgres' } },
-  { id: 'db-mvcc', type: 'topicNode', position: { x: -350, y: 440 }, data: { label: 'MVCC', type: 'subtopic', topicId: 'db-mvcc' } },
-  { id: 'db-vacuum', type: 'topicNode', position: { x: -350, y: 470 }, data: { label: 'VACUUM', type: 'subtopic', topicId: 'db-vacuum' } },
-  { id: 'db-analyze', type: 'topicNode', position: { x: -350, y: 500 }, data: { label: 'ANALYZE', type: 'subtopic', topicId: 'db-analyze' } },
-  { id: 'db-explain', type: 'topicNode', position: { x: -350, y: 530 }, data: { label: 'EXPLAIN', type: 'subtopic', topicId: 'db-explain' } },
-];
-
 // Edges connecting nodes
 const rootEdges: Edge[] = [
   // Root to categories
