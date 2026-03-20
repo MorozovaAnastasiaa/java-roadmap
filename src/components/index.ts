@@ -6,4 +6,5 @@ export * from './RoadmapBento';
 export * from './TopicDrawer';
 export * from './ErrorBoundary';
 export * from './Dashboard';
+export * from './DotGrid';
 export * from './graph';

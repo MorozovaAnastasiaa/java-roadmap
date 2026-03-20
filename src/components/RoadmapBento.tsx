@@ -511,7 +511,7 @@ export const RoadmapBento = () => {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        backgroundColor: '#0A0A0A',
+        backgroundColor: 'transparent',
         padding: '28px 16px',
       }}
     >

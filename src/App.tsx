@@ -1,12 +1,13 @@
 import { Layout } from 'antd';
-import { RoadmapBento, TopicDrawer, ErrorBoundary, Dashboard } from './components';
+import { RoadmapBento, TopicDrawer, ErrorBoundary, Dashboard, DotGrid } from './components';
 
 const { Content, Sider } = Layout;
 
 function App() {
   return (
     <ErrorBoundary>
-      <Layout style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+      <DotGrid />
+      <Layout style={{ minHeight: '100vh', background: 'transparent' }}>
         <Content style={{ overflow: 'auto' }}>
           <RoadmapBento />
         </Content>
