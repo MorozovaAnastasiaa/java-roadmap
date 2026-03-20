@@ -1,14 +1,21 @@
+import { useState } from 'react';
 import { Layout } from 'antd';
-import { RoadmapTimeline, TopicDrawer, ErrorBoundary, Dashboard } from './components';
+import { RoadmapTimeline, RoadmapBento, TopicDrawer, ErrorBoundary, Dashboard } from './components';
 
 const { Content, Sider } = Layout;
 
 function App() {
+  // Переключатель для просмотра прототипа: ?view=bento в URL
+  const [viewMode] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('view') === 'bento' ? 'bento' : 'timeline';
+  });
+
   return (
     <ErrorBoundary>
       <Layout style={{ minHeight: '100vh', background: '#0A0A0A' }}>
         <Content style={{ overflow: 'auto' }}>
-          <RoadmapTimeline />
+          {viewMode === 'bento' ? <RoadmapBento /> : <RoadmapTimeline />}
         </Content>
         <Sider
           width={280}
