@@ -161,12 +161,10 @@ const ItemBlock = ({
 const SubtopicBlock = ({
   id,
   name,
-  zoneAccent,
   zoneGlow,
 }: {
   id: string;
   name: string;
-  zoneAccent: string;
   zoneGlow: string;
 }) => {
   const selectTopic = useAppStore((state) => state.selectTopic);
@@ -240,11 +238,9 @@ const CategoryBlock = ({ name, zoneGlow }: { name: string; zoneGlow: string }) =
 const SubtopicWithItems = ({
   subtopic,
   zoneGlow,
-  zoneAccent,
 }: {
   subtopic: { id: string; name: string; items?: { id: string; name: string }[] };
   zoneGlow: string;
-  zoneAccent: string;
   align: 'left' | 'right';
 }) => (
   <div
@@ -263,7 +259,6 @@ const SubtopicWithItems = ({
     <SubtopicBlock
       id={subtopic.id}
       name={subtopic.name}
-      zoneAccent={zoneAccent}
       zoneGlow={zoneGlow}
     />
     {/* Items below header */}
@@ -286,7 +281,7 @@ const SubtopicWithItems = ({
 );
 
 // Category row with multi-column subtopics (2 columns per side)
-const CategoryRow = ({ topic, zoneGlow, zoneAccent }: { topic: typeof TOPICS_DATA[0]; zoneGlow: string; zoneAccent: string }) => {
+const CategoryRow = ({ topic, zoneGlow }: { topic: typeof TOPICS_DATA[0]; zoneGlow: string }) => {
   // Balance subtopics by weight for visual symmetry
   const { left: leftSubtopics, right: rightSubtopics } = balanceSubtopics(topic.subtopics);
 
@@ -332,7 +327,7 @@ const CategoryRow = ({ topic, zoneGlow, zoneAccent }: { topic: typeof TOPICS_DAT
               }}
             >
               {(leftRows[rowIndex] || []).map((sub) => (
-                <SubtopicWithItems key={sub.id} subtopic={sub} zoneGlow={zoneGlow} zoneAccent={zoneAccent} align="left" />
+                <SubtopicWithItems key={sub.id} subtopic={sub} zoneGlow={zoneGlow} align="left" />
               ))}
             </div>
           ))}
@@ -367,7 +362,7 @@ const CategoryRow = ({ topic, zoneGlow, zoneAccent }: { topic: typeof TOPICS_DAT
               }}
             >
               {(rightRows[rowIndex] || []).map((sub) => (
-                <SubtopicWithItems key={sub.id} subtopic={sub} zoneGlow={zoneGlow} zoneAccent={zoneAccent} align="right" />
+                <SubtopicWithItems key={sub.id} subtopic={sub} zoneGlow={zoneGlow} align="right" />
               ))}
             </div>
           ))}
@@ -465,7 +460,7 @@ const ZoneSection = ({ zone, index }: { zone: ZoneConfig; index: number }) => {
       {/* Categories */}
       <div style={{ position: 'relative' }}>
         {zoneTopics.map((topic) => (
-          <CategoryRow key={topic.id} topic={topic} zoneGlow={zone.glowColor} zoneAccent={zone.accentColor} />
+          <CategoryRow key={topic.id} topic={topic} zoneGlow={zone.glowColor} />
         ))}
       </div>
     </div>
