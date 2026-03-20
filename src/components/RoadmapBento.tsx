@@ -4,12 +4,6 @@ import { useAppStore } from '../store/useAppStore';
 import { STATUS_COLORS, ZONES, GLASS_BASE, getLearnedColors, type ZoneConfig } from '../constants/colors';
 import type { ProgressStatus } from '../types';
 
-// Status icons (simplified to 2)
-const STATUS_ICONS: Record<ProgressStatus, string> = {
-  not_started: '○',
-  learned: '✓',
-};
-
 // Balance subtopics between left and right by weight (item count)
 const balanceSubtopics = <T extends { items?: unknown[] }>(subtopics: T[]): { left: T[]; right: T[] } => {
   const sorted = [...subtopics].sort((a, b) =>
@@ -121,7 +115,6 @@ const ItemBlock = ({
   const status: ProgressStatus = progress[id] || 'not_started';
   // Use zone color for learned status
   const colors = status === 'learned' ? getLearnedColors(zoneGlow) : STATUS_COLORS.not_started;
-  const icon = STATUS_ICONS[status];
 
   return (
     <div
@@ -140,13 +133,12 @@ const ItemBlock = ({
         ...GLASS_BASE,
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '4px',
         padding: '4px 8px',
         backgroundColor: colors.background,
         border: `1px solid ${colors.border}`,
         borderRadius: '6px',
         boxShadow: colors.glow,
-        fontSize: '10px',
+        fontSize: '11px',
         fontWeight: status === 'learned' ? 500 : 400,
         color: status === 'learned' ? '#F3F4F6' : '#9CA3AF',
         cursor: 'pointer',
@@ -154,9 +146,6 @@ const ItemBlock = ({
         maxWidth: '100%',
       }}
     >
-      <span style={{ fontSize: '8px', opacity: status === 'not_started' ? 0.4 : 1, flexShrink: 0 }}>
-        {icon}
-      </span>
       <span style={{
         overflow: 'hidden',
         textOverflow: 'ellipsis',
@@ -168,7 +157,7 @@ const ItemBlock = ({
   );
 };
 
-// Subtopic block (тема-заголовок группы) — with zone color for learned
+// Subtopic block (тема-заголовок группы) — full width header
 const SubtopicBlock = ({
   id,
   name,
@@ -183,25 +172,11 @@ const SubtopicBlock = ({
   const selectTopic = useAppStore((state) => state.selectTopic);
   const progress = useAppStore((state) => state.progress);
   const status: ProgressStatus = progress[id] || 'not_started';
-  const icon = STATUS_ICONS[status];
   const isLearned = status === 'learned';
-
-  // Colors based on status - learned uses zone color
-  const c = isLearned
-    ? {
-        bg: `rgba(${zoneGlow}, 0.15)`,
-        border: `rgba(${zoneGlow}, 0.6)`,
-        text: '#F3F4F6',
-      }
-    : {
-        bg: `rgba(${zoneGlow}, 0.06)`,
-        border: `rgba(${zoneGlow}, 0.25)`,
-        text: '#9CA3AF',
-      };
 
   return (
     <div
-      className="topic-block"
+      className="subtopic-header"
       onClick={() => selectTopic(id)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -213,30 +188,25 @@ const SubtopicBlock = ({
       role="button"
       title={name}
       style={{
-        display: 'inline-flex',
+        display: 'flex',
         alignItems: 'center',
-        gap: '6px',
-        padding: '6px 10px',
-        backgroundColor: c.bg,
-        border: `1px solid ${c.border}`,
-        borderRadius: '6px',
-        borderLeft: `3px solid ${isLearned ? c.border : zoneAccent}`,
-        boxShadow: isLearned ? `0 0 12px rgba(${zoneGlow}, 0.25)` : 'none',
-        fontSize: '12px',
+        width: '100%',
+        padding: '8px 12px',
+        backgroundColor: isLearned ? `rgba(${zoneGlow}, 0.12)` : 'rgba(255, 255, 255, 0.03)',
+        borderBottom: `1px solid rgba(${zoneGlow}, ${isLearned ? 0.4 : 0.15})`,
+        borderRadius: '6px 6px 0 0',
+        fontSize: '13px',
         fontWeight: 600,
-        color: c.text,
+        color: isLearned ? '#F3F4F6' : '#D1D5DB',
         cursor: 'pointer',
         transition: 'all 0.2s ease-out',
-        maxWidth: '100%',
       }}
     >
-      <span style={{ fontSize: '10px', opacity: isLearned ? 1 : 0.5, flexShrink: 0 }}>
-        {icon}
-      </span>
       <span style={{
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
+        flex: 1,
       }}>
         {name}
       </span>
@@ -271,7 +241,6 @@ const SubtopicWithItems = ({
   subtopic,
   zoneGlow,
   zoneAccent,
-  align,
 }: {
   subtopic: { id: string; name: string; items?: { id: string; name: string }[] };
   zoneGlow: string;
@@ -283,28 +252,28 @@ const SubtopicWithItems = ({
       ...GLASS_BASE,
       display: 'flex',
       flexDirection: 'column',
-      alignItems: align === 'left' ? 'flex-end' : 'flex-start',
-      gap: '8px',
-      padding: '10px 12px',
-      backgroundColor: `rgba(${zoneGlow}, 0.05)`,
+      backgroundColor: `rgba(${zoneGlow}, 0.04)`,
       border: `1px solid rgba(${zoneGlow}, 0.15)`,
       borderRadius: '10px',
       width: `${CARD_WIDTH}px`,
+      overflow: 'hidden',
     }}
   >
+    {/* Header - full width */}
     <SubtopicBlock
       id={subtopic.id}
       name={subtopic.name}
       zoneAccent={zoneAccent}
       zoneGlow={zoneGlow}
     />
+    {/* Items below header */}
     {subtopic.items && subtopic.items.length > 0 && (
       <div
         style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: '4px',
-          justifyContent: align === 'left' ? 'flex-end' : 'flex-start',
+          padding: '10px',
           width: '100%',
         }}
       >
@@ -470,7 +439,6 @@ const ZoneSection = ({ zone, index }: { zone: ZoneConfig; index: number }) => {
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.1em',
-            paddingLeft: '4px',
             textShadow: `0 0 20px rgba(${zone.glowColor}, 0.5)`,
           }}
         >

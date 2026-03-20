@@ -9,11 +9,10 @@ interface DotGridProps {
 }
 
 export const DotGrid = ({
-  dotColor = 'rgba(255, 255, 255, 0.12)',
   dotSize = 1,
   gap = 28,
-  hoverRadius = 180,
-  hoverScale = 2.5,
+  hoverRadius = 200,
+  hoverScale = 1.6,
 }: DotGridProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
