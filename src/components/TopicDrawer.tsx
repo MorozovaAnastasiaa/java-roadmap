@@ -1,6 +1,6 @@
 import { Drawer, Segmented, Card, Typography } from 'antd';
 import { useAppStore } from '../store/useAppStore';
-import { CATEGORIES, getQuestionsByTopicId } from '../data';
+import { getQuestionsByTopicId, TOPICS_DATA } from '../data';
 import { META_TEXT_COLOR } from '../constants/colors';
 import type { ProgressStatus } from '../types';
 
@@ -25,12 +25,29 @@ const isValidProgressStatus = (value: string): value is ProgressStatus => {
   return PROGRESS_STATUS_VALUES.includes(value as ProgressStatus);
 };
 
+// Find topic name from graph data
+const findTopicName = (topicId: string): string | null => {
+  // Check if it's a category
+  const category = TOPICS_DATA.find(t => t.id === topicId);
+  if (category) return category.name;
+
+  // Check subtopics and items
+  for (const cat of TOPICS_DATA) {
+    for (const sub of cat.subtopics) {
+      if (sub.id === topicId) return sub.name;
+      if (sub.items) {
+        const item = sub.items.find(i => i.id === topicId);
+        if (item) return item.name;
+      }
+    }
+  }
+  return null;
+};
+
 export const TopicDrawer = () => {
   const { selectedTopic, selectTopic, progress, setProgress } = useAppStore();
 
-  const topic = selectedTopic
-    ? CATEGORIES.flatMap((c) => c.topics).find((t) => t.id === selectedTopic)
-    : null;
+  const topicName = selectedTopic ? findTopicName(selectedTopic) : null;
 
   const currentStatus = selectedTopic
     ? progress[selectedTopic] || 'not_started'
@@ -46,7 +63,7 @@ export const TopicDrawer = () => {
 
   return (
     <Drawer
-      title={topic?.name || ''}
+      title={topicName || ''}
       placement="right"
       open={!!selectedTopic}
       onClose={() => selectTopic(null)}

@@ -31,12 +31,82 @@ html, body {
   background: #595959;
 }
 
-/* TopicNode hover effect */
-.topic-node:hover {
-  filter: brightness(1.2);
+/* Pulse animation for in_progress topics */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3), 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(250, 204, 21, 0.5), 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
 }
 
-.topic-node:focus-visible {
-  outline: 2px solid #1677ff;
+/* Zone fade-in animation */
+@keyframes zone-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zone-section {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.zone-section.visible {
+  animation: zone-fade-in 0.6s ease-out forwards;
+}
+
+/* Stagger children animation */
+.zone-section.visible .category-row {
+  opacity: 0;
+  animation: zone-fade-in 0.5s ease-out forwards;
+}
+
+.zone-section.visible .category-row:nth-child(1) { animation-delay: 0.1s; }
+.zone-section.visible .category-row:nth-child(2) { animation-delay: 0.2s; }
+.zone-section.visible .category-row:nth-child(3) { animation-delay: 0.3s; }
+.zone-section.visible .category-row:nth-child(4) { animation-delay: 0.4s; }
+.zone-section.visible .category-row:nth-child(5) { animation-delay: 0.5s; }
+
+.topic-block.in-progress,
+.topic-node.in-progress {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Glassmorphism hover effects */
+.topic-node:hover,
+.topic-block:hover {
+  transform: translateY(-2px) scale(1.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(167, 139, 250, 0.15);
+}
+
+/* Disable pulse on hover */
+.topic-block.in-progress:hover,
+.topic-node.in-progress:hover {
+  animation: none;
+}
+
+.topic-node:focus-visible,
+.topic-block:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.6);
   outline-offset: 2px;
+}
+
+/* ReactFlow node hover */
+.react-flow__node:hover {
+  z-index: 10 !important;
+}
+
+.react-flow__node:hover > div {
+  transform: scale(1.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
