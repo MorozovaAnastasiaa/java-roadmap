@@ -21,22 +21,20 @@ export const STATUS_COLORS: Record<ProgressStatus, StatusColor> = {
     glow: '0 4px 24px rgba(0, 0, 0, 0.3)',
     background: 'rgba(38, 38, 38, 0.6)',
   },
-  in_progress: {
-    border: 'rgba(250, 204, 21, 0.6)',
-    glow: '0 0 20px rgba(250, 204, 21, 0.3), 0 4px 24px rgba(0, 0, 0, 0.3)',
-    background: 'rgba(250, 204, 21, 0.1)',
-  },
   learned: {
+    // Default green - will be overridden by zone color in components
     border: 'rgba(74, 222, 128, 0.6)',
     glow: '0 0 20px rgba(74, 222, 128, 0.3), 0 4px 24px rgba(0, 0, 0, 0.3)',
     background: 'rgba(74, 222, 128, 0.1)',
   },
-  confident: {
-    border: 'rgba(167, 139, 250, 0.7)',
-    glow: '0 0 25px rgba(167, 139, 250, 0.4), 0 4px 24px rgba(0, 0, 0, 0.3)',
-    background: 'rgba(167, 139, 250, 0.15)',
-  },
 };
+
+// Generate learned colors based on zone glow color (RGB string like "59, 130, 246")
+export const getLearnedColors = (zoneGlow: string): StatusColor => ({
+  border: `rgba(${zoneGlow}, 0.6)`,
+  glow: `0 0 20px rgba(${zoneGlow}, 0.35), 0 4px 24px rgba(0, 0, 0, 0.3)`,
+  background: `rgba(${zoneGlow}, 0.12)`,
+});
 
 // Zone visual groupings with glow colors
 export interface ZoneConfig {

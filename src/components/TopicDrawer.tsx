@@ -1,29 +1,10 @@
-import { Drawer, Segmented, Card, Typography } from 'antd';
+import { Drawer, Button, Card, Typography } from 'antd';
+import { CheckOutlined } from '@ant-design/icons';
 import { useAppStore } from '../store/useAppStore';
 import { getQuestionsByTopicId, TOPICS_DATA } from '../data';
 import { META_TEXT_COLOR } from '../constants/colors';
-import type { ProgressStatus } from '../types';
 
 const { Text } = Typography;
-
-// Single source of truth for status options - derived from ProgressStatus type
-const PROGRESS_STATUS_VALUES: ProgressStatus[] = ['not_started', 'in_progress', 'learned', 'confident'];
-
-const STATUS_LABELS: Record<ProgressStatus, string> = {
-  not_started: 'Не начато',
-  in_progress: 'В процессе',
-  learned: 'Изучено',
-  confident: 'Уверенно',
-};
-
-const STATUS_OPTIONS = PROGRESS_STATUS_VALUES.map((value) => ({
-  label: STATUS_LABELS[value],
-  value,
-}));
-
-const isValidProgressStatus = (value: string): value is ProgressStatus => {
-  return PROGRESS_STATUS_VALUES.includes(value as ProgressStatus);
-};
 
 // Find topic name from graph data
 const findTopicName = (topicId: string): string | null => {
@@ -53,11 +34,13 @@ export const TopicDrawer = () => {
     ? progress[selectedTopic] || 'not_started'
     : 'not_started';
 
+  const isLearned = currentStatus === 'learned';
+
   const questions = selectedTopic ? getQuestionsByTopicId(selectedTopic) : [];
 
-  const handleStatusChange = (value: string) => {
-    if (selectedTopic && isValidProgressStatus(value)) {
-      setProgress(selectedTopic, value);
+  const handleToggle = () => {
+    if (selectedTopic) {
+      setProgress(selectedTopic, isLearned ? 'not_started' : 'learned');
     }
   };
 
@@ -69,13 +52,19 @@ export const TopicDrawer = () => {
       onClose={() => selectTopic(null)}
       width={400}
     >
-      <Segmented
-        options={STATUS_OPTIONS}
-        value={currentStatus}
-        onChange={handleStatusChange}
+      <Button
+        type={isLearned ? 'primary' : 'default'}
+        icon={isLearned ? <CheckOutlined /> : null}
+        onClick={handleToggle}
         block
-        aria-label="Выберите статус изучения темы"
-      />
+        size="large"
+        style={{
+          backgroundColor: isLearned ? '#22C55E' : undefined,
+          borderColor: isLearned ? '#22C55E' : undefined,
+        }}
+      >
+        {isLearned ? 'Изучено' : 'Отметить как изученное'}
+      </Button>
 
       <div
         role="region"

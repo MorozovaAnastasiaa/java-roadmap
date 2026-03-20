@@ -31,7 +31,7 @@ export const TopicNode = ({ topic }: TopicNodeProps) => {
     ...GLASS_BASE,
   };
 
-  const className = status === 'in_progress' ? 'topic-node in-progress' : 'topic-node';
+  const className = 'topic-node';
 
   return (
     <div

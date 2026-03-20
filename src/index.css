@@ -31,15 +31,6 @@ html, body {
   background: #595959;
 }
 
-/* Pulse animation for in_progress topics */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3), 0 4px 24px rgba(0, 0, 0, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 28px rgba(250, 204, 21, 0.5), 0 4px 24px rgba(0, 0, 0, 0.3);
-  }
-}
 
 /* Zone fade-in animation */
 @keyframes zone-fade-in {
@@ -74,11 +65,6 @@ html, body {
 .zone-section.visible .category-row:nth-child(4) { animation-delay: 0.4s; }
 .zone-section.visible .category-row:nth-child(5) { animation-delay: 0.5s; }
 
-.topic-block.in-progress,
-.topic-node.in-progress {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
 /* Glassmorphism hover effects */
 .topic-node:hover,
 .topic-block:hover {
@@ -86,12 +72,6 @@ html, body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(167, 139, 250, 0.15);
-}
-
-/* Disable pulse on hover */
-.topic-block.in-progress:hover,
-.topic-node.in-progress:hover {
-  animation: none;
 }
 
 .topic-node:focus-visible,

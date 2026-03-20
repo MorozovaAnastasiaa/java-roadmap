@@ -1,18 +1,44 @@
 import { useEffect, useRef, useState } from 'react';
 import { TOPICS_DATA } from '../data/graphData';
 import { useAppStore } from '../store/useAppStore';
-import { STATUS_COLORS, ZONES, GLASS_BASE, type ZoneConfig } from '../constants/colors';
+import { STATUS_COLORS, ZONES, GLASS_BASE, getLearnedColors, type ZoneConfig } from '../constants/colors';
 import type { ProgressStatus } from '../types';
 
-// Status icons
+// Status icons (simplified to 2)
 const STATUS_ICONS: Record<ProgressStatus, string> = {
   not_started: '○',
-  in_progress: '◐',
-  learned: '●',
-  confident: '✓',
+  learned: '✓',
 };
 
-// Zone progress
+// Balance subtopics between left and right by weight (item count)
+const balanceSubtopics = <T extends { items?: unknown[] }>(subtopics: T[]): { left: T[]; right: T[] } => {
+  const sorted = [...subtopics].sort((a, b) =>
+    (b.items?.length || 0) - (a.items?.length || 0)
+  );
+
+  const left: T[] = [];
+  const right: T[] = [];
+  let leftWeight = 0;
+  let rightWeight = 0;
+
+  for (const sub of sorted) {
+    const weight = 1 + (sub.items?.length || 0);
+    if (leftWeight <= rightWeight) {
+      left.push(sub);
+      leftWeight += weight;
+    } else {
+      right.push(sub);
+      rightWeight += weight;
+    }
+  }
+
+  return { left, right };
+};
+
+// Fixed card width
+const CARD_WIDTH = 210;
+
+// Zone progress (simplified: learned = 100%)
 const useZoneProgress = (zone: ZoneConfig) => {
   const progress = useAppStore((state) => state.progress);
   const ids: string[] = [];
@@ -33,10 +59,7 @@ const useZoneProgress = (zone: ZoneConfig) => {
 
   let done = 0;
   for (const id of ids) {
-    const status = progress[id];
-    if (status === 'confident') done += 1;
-    else if (status === 'learned') done += 0.7;
-    else if (status === 'in_progress') done += 0.3;
+    if (progress[id] === 'learned') done += 1;
   }
 
   return Math.round((done / ids.length) * 100);
@@ -83,23 +106,26 @@ const ZoneProgressBar = ({ zone }: { zone: ZoneConfig }) => {
   );
 };
 
-// Item block (подтема)
+// Item block (подтема) - with zone color for learned status
 const ItemBlock = ({
   id,
   name,
+  zoneGlow,
 }: {
   id: string;
   name: string;
+  zoneGlow: string;
 }) => {
   const selectTopic = useAppStore((state) => state.selectTopic);
   const progress = useAppStore((state) => state.progress);
   const status: ProgressStatus = progress[id] || 'not_started';
-  const colors = STATUS_COLORS[status];
+  // Use zone color for learned status
+  const colors = status === 'learned' ? getLearnedColors(zoneGlow) : STATUS_COLORS.not_started;
   const icon = STATUS_ICONS[status];
 
   return (
     <div
-      className={status === 'in_progress' ? 'topic-block in-progress' : 'topic-block'}
+      className="topic-block"
       onClick={() => selectTopic(id)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -109,6 +135,7 @@ const ItemBlock = ({
       }}
       tabIndex={0}
       role="button"
+      title={name}
       style={{
         ...GLASS_BASE,
         display: 'inline-flex',
@@ -120,22 +147,28 @@ const ItemBlock = ({
         borderRadius: '6px',
         boxShadow: colors.glow,
         fontSize: '10px',
-        fontWeight: 400,
-        color: '#D1D5DB',
+        fontWeight: status === 'learned' ? 500 : 400,
+        color: status === 'learned' ? '#F3F4F6' : '#9CA3AF',
         cursor: 'pointer',
         transition: 'all 0.2s ease-out',
-        whiteSpace: 'nowrap',
+        maxWidth: '100%',
       }}
     >
-      <span style={{ fontSize: '8px', opacity: status === 'not_started' ? 0.5 : 1 }}>
+      <span style={{ fontSize: '8px', opacity: status === 'not_started' ? 0.4 : 1, flexShrink: 0 }}>
         {icon}
       </span>
-      {name}
+      <span style={{
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      }}>
+        {name}
+      </span>
     </div>
   );
 };
 
-// Subtopic block (тема-заголовок группы) — выделенный стиль
+// Subtopic block (тема-заголовок группы) — with zone color for learned
 const SubtopicBlock = ({
   id,
   name,
@@ -151,36 +184,24 @@ const SubtopicBlock = ({
   const progress = useAppStore((state) => state.progress);
   const status: ProgressStatus = progress[id] || 'not_started';
   const icon = STATUS_ICONS[status];
+  const isLearned = status === 'learned';
 
-  // Цвета в зависимости от статуса
-  const statusColors = {
-    not_started: {
-      bg: `rgba(${zoneGlow}, 0.08)`,
-      border: `rgba(${zoneGlow}, 0.3)`,
-      text: '#E5E7EB',
-    },
-    in_progress: {
-      bg: 'rgba(250, 204, 21, 0.12)',
-      border: 'rgba(250, 204, 21, 0.5)',
-      text: '#FDE047',
-    },
-    learned: {
-      bg: 'rgba(74, 222, 128, 0.12)',
-      border: 'rgba(74, 222, 128, 0.5)',
-      text: '#86EFAC',
-    },
-    confident: {
-      bg: 'rgba(167, 139, 250, 0.15)',
-      border: 'rgba(167, 139, 250, 0.6)',
-      text: '#C4B5FD',
-    },
-  };
-
-  const c = statusColors[status];
+  // Colors based on status - learned uses zone color
+  const c = isLearned
+    ? {
+        bg: `rgba(${zoneGlow}, 0.15)`,
+        border: `rgba(${zoneGlow}, 0.6)`,
+        text: '#F3F4F6',
+      }
+    : {
+        bg: `rgba(${zoneGlow}, 0.06)`,
+        border: `rgba(${zoneGlow}, 0.25)`,
+        text: '#9CA3AF',
+      };
 
   return (
     <div
-      className={status === 'in_progress' ? 'topic-block in-progress' : 'topic-block'}
+      className="topic-block"
       onClick={() => selectTopic(id)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -190,6 +211,7 @@ const SubtopicBlock = ({
       }}
       tabIndex={0}
       role="button"
+      title={name}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -198,45 +220,53 @@ const SubtopicBlock = ({
         backgroundColor: c.bg,
         border: `1px solid ${c.border}`,
         borderRadius: '6px',
-        borderLeft: `3px solid ${status === 'not_started' ? zoneAccent : c.border}`,
+        borderLeft: `3px solid ${isLearned ? c.border : zoneAccent}`,
+        boxShadow: isLearned ? `0 0 12px rgba(${zoneGlow}, 0.25)` : 'none',
         fontSize: '12px',
         fontWeight: 600,
         color: c.text,
         cursor: 'pointer',
         transition: 'all 0.2s ease-out',
-        whiteSpace: 'nowrap',
+        maxWidth: '100%',
       }}
     >
-      <span style={{ fontSize: '10px', opacity: status === 'not_started' ? 0.6 : 1 }}>
+      <span style={{ fontSize: '10px', opacity: isLearned ? 1 : 0.5, flexShrink: 0 }}>
         {icon}
       </span>
-      {name}
+      <span style={{
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      }}>
+        {name}
+      </span>
     </div>
   );
 };
 
-// Category block (center)
+// Category block (center) - more prominent
 const CategoryBlock = ({ name, zoneGlow }: { name: string; zoneGlow: string }) => (
   <div
     style={{
       ...GLASS_BASE,
-      padding: '12px 20px',
-      backgroundColor: `rgba(${zoneGlow}, 0.2)`,
-      border: `1px solid rgba(${zoneGlow}, 0.5)`,
-      borderRadius: '12px',
-      boxShadow: `0 0 25px rgba(${zoneGlow}, 0.3), 0 4px 20px rgba(0, 0, 0, 0.3)`,
+      padding: '14px 24px',
+      backgroundColor: `rgba(${zoneGlow}, 0.22)`,
+      border: `2px solid rgba(${zoneGlow}, 0.5)`,
+      borderRadius: '14px',
+      boxShadow: `0 0 30px rgba(${zoneGlow}, 0.35), 0 6px 24px rgba(0, 0, 0, 0.3)`,
       fontSize: '14px',
       fontWeight: 600,
       color: '#fff',
       textAlign: 'center',
       minWidth: '160px',
+      maxWidth: '200px',
     }}
   >
     {name}
   </div>
 );
 
-// Subtopic with items - in a card container
+// Subtopic with items - fixed width card container
 const SubtopicWithItems = ({
   subtopic,
   zoneGlow,
@@ -256,11 +286,10 @@ const SubtopicWithItems = ({
       alignItems: align === 'left' ? 'flex-end' : 'flex-start',
       gap: '8px',
       padding: '10px 12px',
-      backgroundColor: `rgba(${zoneGlow}, 0.04)`,
-      border: `1px solid rgba(${zoneGlow}, 0.12)`,
+      backgroundColor: `rgba(${zoneGlow}, 0.05)`,
+      border: `1px solid rgba(${zoneGlow}, 0.15)`,
       borderRadius: '10px',
-      minWidth: '140px',
-      maxWidth: '220px',
+      width: `${CARD_WIDTH}px`,
     }}
   >
     <SubtopicBlock
@@ -274,25 +303,23 @@ const SubtopicWithItems = ({
         style={{
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '3px',
+          gap: '4px',
           justifyContent: align === 'left' ? 'flex-end' : 'flex-start',
+          width: '100%',
         }}
       >
         {subtopic.items.map((item) => (
-          <ItemBlock key={item.id} id={item.id} name={item.name} />
+          <ItemBlock key={item.id} id={item.id} name={item.name} zoneGlow={zoneGlow} />
         ))}
       </div>
     )}
   </div>
 );
 
-// Category row with multi-column subtopics
+// Category row with multi-column subtopics (2 columns per side)
 const CategoryRow = ({ topic, zoneGlow, zoneAccent }: { topic: typeof TOPICS_DATA[0]; zoneGlow: string; zoneAccent: string }) => {
-  const subtopics = topic.subtopics;
-
-  // Split into left and right (alternating)
-  const leftSubtopics = subtopics.filter((_, i) => i % 2 === 0);
-  const rightSubtopics = subtopics.filter((_, i) => i % 2 === 1);
+  // Balance subtopics by weight for visual symmetry
+  const { left: leftSubtopics, right: rightSubtopics } = balanceSubtopics(topic.subtopics);
 
   // Group into rows of 2 for each side
   const groupIntoRows = <T,>(arr: T[], size: number): T[][] => {

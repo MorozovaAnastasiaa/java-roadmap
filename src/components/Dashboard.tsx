@@ -1,16 +1,9 @@
 import { Card, Progress, Divider } from 'antd';
 import { useAppStore } from '../store/useAppStore';
-import { STATUS_COLORS, ZONES } from '../constants/colors';
+import { ZONES } from '../constants/colors';
 import { calculateStats } from '../utils/calculateStats';
 import { TOPICS_DATA } from '../data/graphData';
 import type { ProgressStatus } from '../types';
-
-interface StatItem {
-  label: string;
-  status: ProgressStatus;
-  count: number;
-  percentage: number;
-}
 
 interface CategoryProgress {
   id: string;
@@ -18,6 +11,7 @@ interface CategoryProgress {
   total: number;
   completed: number;
   percentage: number;
+  zoneColor: string;
 }
 
 // Вычисляет прогресс по зонам (6 категорий)
@@ -25,7 +19,6 @@ function calculateCategoryProgress(
   progress: Record<string, ProgressStatus>
 ): CategoryProgress[] {
   return ZONES.map(zone => {
-    // Собираем все topic IDs для этой зоны из TOPICS_DATA
     const zoneTopicIds: string[] = [];
 
     for (const categoryId of zone.categoryIds) {
@@ -45,7 +38,7 @@ function calculateCategoryProgress(
     const total = zoneTopicIds.length;
     const completed = zoneTopicIds.filter(id => {
       const status = progress[id] || 'not_started';
-      return status === 'learned' || status === 'confident';
+      return status === 'learned';
     }).length;
 
     return {
@@ -54,6 +47,7 @@ function calculateCategoryProgress(
       total,
       completed,
       percentage: total > 0 ? Math.round((completed / total) * 100) : 0,
+      zoneColor: zone.accentColor,
     };
   });
 }
@@ -61,22 +55,15 @@ function calculateCategoryProgress(
 export const Dashboard = () => {
   const progress = useAppStore((state) => state.progress);
 
-  // Вычисляем статистику (реактивно обновляется при изменении progress)
+  // Вычисляем статистику
   const stats = calculateStats(progress);
 
   // Вычисляем прогресс по категориям (зонам)
   const categoryProgress = calculateCategoryProgress(progress);
 
-  const statItems: StatItem[] = [
-    { label: 'Не начато', status: 'not_started', count: stats.notStarted, percentage: stats.percentages.not_started },
-    { label: 'В процессе', status: 'in_progress', count: stats.inProgress, percentage: stats.percentages.in_progress },
-    { label: 'Изучено', status: 'learned', count: stats.learned, percentage: stats.percentages.learned },
-    { label: 'Уверенно', status: 'confident', count: stats.confident, percentage: stats.percentages.confident },
-  ];
-
   return (
     <div style={{ padding: '16px' }}>
-      {/* Общий прогресс (learned + confident) */}
+      {/* Общий прогресс */}
       <Card size="small" style={{ marginBottom: '16px', background: '#1f1f1f', border: 'none' }}>
         <div style={{ marginBottom: '8px' }}>
           <span style={{ color: '#9CA3AF', fontSize: '12px' }}>Общий прогресс</span>
@@ -84,54 +71,21 @@ export const Dashboard = () => {
         <Progress
           percent={stats.overallProgress}
           strokeColor={{
-            '0%': 'rgba(74, 222, 128, 0.6)',
-            '100%': 'rgba(167, 139, 250, 0.7)',
+            '0%': '#3B82F6',
+            '100%': '#22C55E',
           }}
           trailColor="#303030"
           format={(percent) => <span style={{ color: '#E5E7EB' }}>{percent}%</span>}
         />
+        <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+          <span style={{ color: '#9CA3AF' }}>Изучено</span>
+          <span style={{ color: '#E5E7EB', fontWeight: 'bold' }}>{stats.learned} / {stats.total}</span>
+        </div>
       </Card>
 
-      {/* Статистика по статусам с процентами и Progress bars */}
-      {statItems.map(item => (
-        <div
-          key={item.status}
-          style={{
-            padding: '12px',
-            marginBottom: '8px',
-            borderRadius: '6px',
-            background: '#1f1f1f',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
-            <div
-              style={{
-                width: '10px',
-                height: '10px',
-                borderRadius: '50%',
-                backgroundColor: STATUS_COLORS[item.status].border,
-                marginRight: '12px',
-                boxShadow: STATUS_COLORS[item.status].glow,
-              }}
-            />
-            <span style={{ color: '#9CA3AF', flex: 1, fontSize: '14px' }}>{item.label}</span>
-            <span style={{ color: '#E5E7EB', fontWeight: 'bold', fontSize: '14px' }}>
-              {item.count} ({item.percentage}%)
-            </span>
-          </div>
-          <Progress
-            percent={item.percentage}
-            strokeColor={STATUS_COLORS[item.status].border}
-            trailColor="#303030"
-            showInfo={false}
-            size="small"
-          />
-        </div>
-      ))}
-
-      {/* Прогресс по категориям */}
+      {/* Прогресс по зонам */}
       <Divider style={{ borderColor: '#303030', margin: '16px 0' }}>
-        <span style={{ color: '#9CA3AF', fontSize: '12px' }}>Прогресс по категориям</span>
+        <span style={{ color: '#9CA3AF', fontSize: '12px' }}>По категориям</span>
       </Divider>
 
       {categoryProgress.map(cat => (
@@ -157,10 +111,7 @@ export const Dashboard = () => {
           </div>
           <Progress
             percent={cat.percentage}
-            strokeColor={{
-              '0%': STATUS_COLORS.learned.border,
-              '100%': STATUS_COLORS.confident.border,
-            }}
+            strokeColor={cat.zoneColor}
             trailColor="#303030"
             showInfo={false}
             size="small"

@@ -21,7 +21,7 @@ const getZoneTopicIds = (zone: ZoneConfig): string[] => {
   return ids;
 };
 
-// Calculate zone progress (0-100)
+// Calculate zone progress (0-100) - simplified
 const useZoneProgress = (zone: ZoneConfig) => {
   const progress = useAppStore((state) => state.progress);
   const topicIds = getZoneTopicIds(zone);
@@ -29,15 +29,12 @@ const useZoneProgress = (zone: ZoneConfig) => {
 
   let done = 0;
   for (const id of topicIds) {
-    const status = progress[id];
-    if (status === 'confident') done += 1;
-    else if (status === 'learned') done += 0.7;
-    else if (status === 'in_progress') done += 0.3;
+    if (progress[id] === 'learned') done += 1;
   }
   return {
     percent: Math.round((done / topicIds.length) * 100),
     total: topicIds.length,
-    done: Math.round(done),
+    done,
   };
 };
 
@@ -82,149 +79,97 @@ const ZoneProgressBar = ({ zone }: { zone: ZoneConfig }) => {
   );
 };
 
-// Gradient glow orbs - large organic scattered layout
+// Gradient glow orbs - simplified for cleaner look
 const GlowOrbs = () => (
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-    {/* Huge blue - top left */}
+    {/* Blue - top left */}
     <div style={{
       position: 'absolute',
-      top: '-15%',
-      left: '-20%',
-      width: '1100px',
-      height: '900px',
-      background: 'radial-gradient(ellipse, rgba(59, 130, 246, 0.18) 0%, transparent 60%)',
-      filter: 'blur(120px)',
-    }} />
-    {/* Large purple - upper right */}
-    <div style={{
-      position: 'absolute',
-      top: '-8%',
-      right: '-15%',
+      top: '-10%',
+      left: '-15%',
       width: '900px',
-      height: '800px',
-      background: 'radial-gradient(ellipse, rgba(168, 85, 247, 0.14) 0%, transparent 65%)',
+      height: '700px',
+      background: 'radial-gradient(ellipse, rgba(59, 130, 246, 0.1) 0%, transparent 60%)',
       filter: 'blur(100px)',
     }} />
-    {/* Medium cyan - top center */}
+    {/* Purple - upper right */}
     <div style={{
       position: 'absolute',
-      top: '5%',
-      left: '30%',
-      width: '600px',
+      top: '10%',
+      right: '-10%',
+      width: '800px',
       height: '600px',
-      background: 'radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%)',
+      background: 'radial-gradient(ellipse, rgba(168, 85, 247, 0.08) 0%, transparent 65%)',
       filter: 'blur(90px)',
     }} />
-    {/* Huge emerald - left side */}
+    {/* Green - center left */}
     <div style={{
       position: 'absolute',
-      top: '18%',
-      left: '-12%',
-      width: '950px',
-      height: '750px',
-      background: 'radial-gradient(ellipse, rgba(16, 185, 129, 0.12) 0%, transparent 60%)',
-      filter: 'blur(110px)',
-    }} />
-    {/* Large orange accent - right */}
-    <div style={{
-      position: 'absolute',
-      top: '25%',
-      right: '5%',
+      top: '40%',
+      left: '-8%',
       width: '700px',
+      height: '600px',
+      background: 'radial-gradient(ellipse, rgba(16, 185, 129, 0.07) 0%, transparent 60%)',
+      filter: 'blur(90px)',
+    }} />
+    {/* Orange - lower right */}
+    <div style={{
+      position: 'absolute',
+      top: '60%',
+      right: '-5%',
+      width: '750px',
       height: '650px',
-      background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.1) 0%, transparent 65%)',
+      background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.07) 0%, transparent 60%)',
       filter: 'blur(95px)',
     }} />
-    {/* Huge purple - center */}
-    <div style={{
-      position: 'absolute',
-      top: '35%',
-      left: '20%',
-      width: '1000px',
-      height: '850px',
-      background: 'radial-gradient(ellipse, rgba(168, 85, 247, 0.09) 0%, transparent 55%)',
-      filter: 'blur(130px)',
-    }} />
-    {/* Large cyan - left lower */}
-    <div style={{
-      position: 'absolute',
-      top: '50%',
-      left: '-10%',
-      width: '800px',
-      height: '700px',
-      background: 'radial-gradient(ellipse, rgba(6, 182, 212, 0.11) 0%, transparent 65%)',
-      filter: 'blur(100px)',
-    }} />
-    {/* Large green - right center */}
-    <div style={{
-      position: 'absolute',
-      top: '48%',
-      right: '-8%',
-      width: '850px',
-      height: '750px',
-      background: 'radial-gradient(ellipse, rgba(34, 197, 94, 0.1) 0%, transparent 60%)',
-      filter: 'blur(110px)',
-    }} />
-    {/* Medium blue - center */}
-    <div style={{
-      position: 'absolute',
-      top: '55%',
-      left: '35%',
-      width: '650px',
-      height: '650px',
-      background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
-      filter: 'blur(90px)',
-    }} />
-    {/* Huge orange - lower left */}
-    <div style={{
-      position: 'absolute',
-      top: '65%',
-      left: '-5%',
-      width: '900px',
-      height: '800px',
-      background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.11) 0%, transparent 60%)',
-      filter: 'blur(115px)',
-    }} />
-    {/* Large purple - lower right */}
-    <div style={{
-      position: 'absolute',
-      top: '70%',
-      right: '10%',
-      width: '750px',
-      height: '700px',
-      background: 'radial-gradient(ellipse, rgba(168, 85, 247, 0.1) 0%, transparent 65%)',
-      filter: 'blur(100px)',
-    }} />
-    {/* Huge emerald - bottom */}
+    {/* Cyan - bottom center */}
     <div style={{
       position: 'absolute',
       top: '80%',
-      left: '25%',
-      width: '1000px',
-      height: '800px',
-      background: 'radial-gradient(ellipse, rgba(16, 185, 129, 0.1) 0%, transparent 55%)',
-      filter: 'blur(120px)',
-    }} />
-    {/* Large blue - bottom right */}
-    <div style={{
-      position: 'absolute',
-      top: '85%',
-      right: '-12%',
-      width: '850px',
-      height: '750px',
-      background: 'radial-gradient(ellipse, rgba(59, 130, 246, 0.12) 0%, transparent 60%)',
-      filter: 'blur(110px)',
+      left: '20%',
+      width: '800px',
+      height: '600px',
+      background: 'radial-gradient(ellipse, rgba(6, 182, 212, 0.06) 0%, transparent 55%)',
+      filter: 'blur(100px)',
     }} />
   </div>
 );
 
-// Status icons for visual indication
+// Status icons (simplified to 2)
 const STATUS_ICONS: Record<ProgressStatus, string> = {
   not_started: '○',
-  in_progress: '◐',
-  learned: '●',
-  confident: '✓',
+  learned: '✓',
 };
+
+// Balance subtopics between left and right by weight (item count)
+const balanceSubtopics = <T extends { items?: unknown[] }>(subtopics: T[]): { left: T[]; right: T[] } => {
+  // Sort by weight (heavier first)
+  const sorted = [...subtopics].sort((a, b) =>
+    (b.items?.length || 0) - (a.items?.length || 0)
+  );
+
+  const left: T[] = [];
+  const right: T[] = [];
+  let leftWeight = 0;
+  let rightWeight = 0;
+
+  // Greedy distribution - add to lighter side
+  for (const sub of sorted) {
+    const weight = 1 + (sub.items?.length || 0);
+    if (leftWeight <= rightWeight) {
+      left.push(sub);
+      leftWeight += weight;
+    } else {
+      right.push(sub);
+      rightWeight += weight;
+    }
+  }
+
+  return { left, right };
+};
+
+// Fixed card width for consistent layout
+const CARD_WIDTH = 200;
 
 // Clickable topic block with glassmorphism
 const TopicBlock = ({
@@ -248,12 +193,13 @@ const TopicBlock = ({
     transition: 'all 0.2s ease-out',
   };
 
-  const className = status === 'in_progress' ? 'topic-block in-progress' : 'topic-block';
+  const className = 'topic-block';
 
   const iconStyle = {
     marginRight: '6px',
     fontSize: level === 'subtopic' ? '12px' : '10px',
     opacity: status === 'not_started' ? 0.5 : 1,
+    flexShrink: 0,
   };
 
   // Subtopic (first level) - larger, prominent glass card
@@ -274,19 +220,24 @@ const TopicBlock = ({
           ...glassStyle,
           display: 'flex',
           alignItems: 'center',
-          padding: '12px 16px',
+          padding: '10px 14px',
           backgroundColor: colors.background,
           border: `1px solid ${colors.border}`,
           borderRadius: '10px',
           boxShadow: colors.glow,
-          fontSize: '14px',
+          fontSize: '13px',
           fontWeight: 500,
           color: '#F3F4F6',
-          whiteSpace: 'nowrap',
         }}
       >
         <span style={iconStyle}>{icon}</span>
-        {name}
+        <span style={{
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        }}>
+          {name}
+        </span>
       </div>
     );
   }
@@ -308,54 +259,60 @@ const TopicBlock = ({
         ...glassStyle,
         display: 'flex',
         alignItems: 'center',
-        padding: '6px 12px',
+        padding: '5px 10px',
         backgroundColor: colors.background,
         border: `1px solid ${colors.border}`,
-        borderRadius: '8px',
+        borderRadius: '6px',
         boxShadow: colors.glow,
-        fontSize: '12px',
+        fontSize: '11px',
         color: '#D1D5DB',
-        whiteSpace: 'nowrap',
       }}
     >
       <span style={iconStyle}>{icon}</span>
-      {name}
+      <span style={{
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      }}>
+        {name}
+      </span>
     </div>
   );
 };
 
-// Category header block with zone-colored glass effect
+// Category header block with zone-colored glass effect - more prominent
 const CategoryBlock = ({ name, zoneGlow }: { name: string; zoneGlow: string }) => (
   <div
     style={{
       ...GLASS_BASE,
-      padding: '14px 28px',
-      backgroundColor: `rgba(${zoneGlow}, 0.2)`,
-      border: `1px solid rgba(${zoneGlow}, 0.4)`,
-      borderRadius: '12px',
-      boxShadow: `0 0 30px rgba(${zoneGlow}, 0.35), 0 8px 32px rgba(0, 0, 0, 0.3)`,
+      padding: '16px 32px',
+      backgroundColor: `rgba(${zoneGlow}, 0.22)`,
+      border: `2px solid rgba(${zoneGlow}, 0.5)`,
+      borderRadius: '14px',
+      boxShadow: `0 0 35px rgba(${zoneGlow}, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3)`,
       fontSize: '15px',
       fontWeight: 600,
       color: '#fff',
       textAlign: 'center',
-      minWidth: '200px',
+      minWidth: '180px',
+      maxWidth: '220px',
     }}
   >
     {name}
   </div>
 );
 
-// Glowing connection line
+// Glowing connection line - stronger visual
 const ConnectionLine = ({ align, zoneGlow }: { align: 'left' | 'right'; zoneGlow: string }) => (
   <div
     style={{
       position: 'absolute',
       top: '50%',
       [align === 'left' ? 'right' : 'left']: '100%',
-      width: '24px',
+      width: '32px',
       height: '2px',
-      background: `linear-gradient(${align === 'left' ? 'to left' : 'to right'}, rgba(${zoneGlow}, 0.6), rgba(${zoneGlow}, 0.1))`,
-      boxShadow: `0 0 8px rgba(${zoneGlow}, 0.4)`,
+      background: `linear-gradient(${align === 'left' ? 'to left' : 'to right'}, rgba(${zoneGlow}, 0.8), rgba(${zoneGlow}, 0.15))`,
+      boxShadow: `0 0 10px rgba(${zoneGlow}, 0.5)`,
       transform: 'translateY(-50%)',
     }}
   />
@@ -378,9 +335,10 @@ const SubtopicGroup = ({
       flexDirection: 'column',
       alignItems: align === 'left' ? 'flex-end' : 'flex-start',
       gap: '6px',
+      width: `${CARD_WIDTH}px`,
     }}
   >
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', width: '100%' }}>
       <ConnectionLine align={align} zoneGlow={zoneGlow} />
       <TopicBlock id={subtopic.id} name={subtopic.name} level="subtopic" />
     </div>
@@ -391,13 +349,14 @@ const SubtopicGroup = ({
           display: 'flex',
           flexDirection: 'column',
           alignItems: align === 'left' ? 'flex-end' : 'flex-start',
-          gap: '4px',
-          marginLeft: align === 'right' ? '20px' : '0',
-          marginRight: align === 'left' ? '20px' : '0',
-          paddingLeft: align === 'right' ? '12px' : '0',
-          paddingRight: align === 'left' ? '12px' : '0',
-          borderLeft: align === 'right' ? `1px solid rgba(${zoneGlow}, 0.2)` : 'none',
-          borderRight: align === 'left' ? `1px solid rgba(${zoneGlow}, 0.2)` : 'none',
+          gap: '3px',
+          width: '100%',
+          marginLeft: align === 'right' ? '12px' : '0',
+          marginRight: align === 'left' ? '12px' : '0',
+          paddingLeft: align === 'right' ? '10px' : '0',
+          paddingRight: align === 'left' ? '10px' : '0',
+          borderLeft: align === 'right' ? `1px solid rgba(${zoneGlow}, 0.25)` : 'none',
+          borderRight: align === 'left' ? `1px solid rgba(${zoneGlow}, 0.25)` : 'none',
         }}
       >
         {subtopic.items.map((item) => (
@@ -410,17 +369,30 @@ const SubtopicGroup = ({
 
 // Category row with subtopics branching left and right
 const CategoryRow = ({ topic, zoneGlow }: { topic: typeof TOPICS_DATA[0]; zoneGlow: string }) => {
-  // Split subtopics: odd indices left, even indices right
-  const leftSubtopics = topic.subtopics.filter((_, i) => i % 2 === 0);
-  const rightSubtopics = topic.subtopics.filter((_, i) => i % 2 === 1);
+  // Balance subtopics by weight (item count) for visual symmetry
+  const { left: leftSubtopics, right: rightSubtopics } = balanceSubtopics(topic.subtopics);
 
   return (
-    <div className="category-row" style={{ position: 'relative', marginBottom: '40px' }}>
+    <div className="category-row" style={{ position: 'relative', marginBottom: '48px' }}>
+      {/* Center node marker */}
+      <div style={{
+        position: 'absolute',
+        left: '50%',
+        top: '20px',
+        transform: 'translateX(-50%)',
+        width: '10px',
+        height: '10px',
+        borderRadius: '50%',
+        backgroundColor: `rgba(${zoneGlow}, 0.7)`,
+        boxShadow: `0 0 12px rgba(${zoneGlow}, 0.5)`,
+        zIndex: 3,
+      }} />
+
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr auto 1fr',
-          gap: '24px',
+          gap: '32px',
           alignItems: 'start',
         }}
       >
@@ -429,9 +401,9 @@ const CategoryRow = ({ topic, zoneGlow }: { topic: typeof TOPICS_DATA[0]; zoneGl
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
+            gap: '16px',
             alignItems: 'flex-end',
-            paddingRight: '20px',
+            paddingRight: '24px',
           }}
         >
           {leftSubtopics.map((sub) => (
@@ -449,9 +421,9 @@ const CategoryRow = ({ topic, zoneGlow }: { topic: typeof TOPICS_DATA[0]; zoneGl
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
+            gap: '16px',
             alignItems: 'flex-start',
-            paddingLeft: '20px',
+            paddingLeft: '24px',
           }}
         >
           {rightSubtopics.map((sub) => (
@@ -538,16 +510,16 @@ const ZoneSection = ({ zone, index }: { zone: typeof ZONES[0]; index: number }) 
 
       {/* Categories inside zone with vertical connector */}
       <div style={{ position: 'relative' }}>
-        {/* Vertical glow line connecting categories within zone */}
+        {/* Vertical glow line connecting categories within zone - stronger */}
         {zoneTopics.length > 1 && (
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: '30px',
-            bottom: '60px',
-            width: '2px',
-            background: `linear-gradient(to bottom, rgba(${zone.glowColor}, 0.4), rgba(${zone.glowColor}, 0.15), rgba(${zone.glowColor}, 0.4))`,
-            boxShadow: `0 0 12px rgba(${zone.glowColor}, 0.3)`,
+            top: '20px',
+            bottom: '50px',
+            width: '3px',
+            background: `linear-gradient(to bottom, rgba(${zone.glowColor}, 0.6), rgba(${zone.glowColor}, 0.25), rgba(${zone.glowColor}, 0.6))`,
+            boxShadow: `0 0 15px rgba(${zone.glowColor}, 0.4)`,
             transform: 'translateX(-50%)',
             zIndex: 0,
           }} />
