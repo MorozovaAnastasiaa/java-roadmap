@@ -1,12 +1,30 @@
-import { RoadmapTimeline, TopicDrawer, ErrorBoundary } from './components';
+import { Layout } from 'antd';
+import { RoadmapTimeline, TopicDrawer, ErrorBoundary, Dashboard } from './components';
+
+const { Content, Sider } = Layout;
 
 function App() {
   return (
     <ErrorBoundary>
-      <div style={{ position: 'relative' }}>
-        <RoadmapTimeline />
-        <TopicDrawer />
-      </div>
+      <Layout style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+        <Content style={{ overflow: 'auto' }}>
+          <RoadmapTimeline />
+        </Content>
+        <Sider
+          width={280}
+          style={{
+            background: '#1a1a1a',
+            borderLeft: '1px solid #303030',
+            position: 'sticky',
+            top: 0,
+            height: '100vh',
+            overflow: 'auto',
+          }}
+        >
+          <Dashboard />
+        </Sider>
+      </Layout>
+      <TopicDrawer />
     </ErrorBoundary>
   );
 }
