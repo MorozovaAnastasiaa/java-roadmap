@@ -1,34 +1,35 @@
 import type { Question } from '../types';
 
 export const QUESTIONS: Question[] = [
-  // Records и Дженерики (1-27) → generics
-  { id: 1, text: 'Что такое Record в Java и с какой версии они доступны?', topicId: 'generics' },
-  { id: 2, text: 'В чём основные отличия Record от обычного класса?', topicId: 'generics' },
-  { id: 3, text: 'Можно ли наследоваться от Record или наследовать Record от другого класса?', topicId: 'generics' },
-  { id: 4, text: 'Можно ли добавлять дополнительные методы в Record?', topicId: 'generics' },
-  { id: 5, text: 'Какие методы автоматически генерируются для Record?', topicId: 'generics' },
-  { id: 6, text: 'Можно ли переопределить конструктор в Record?', topicId: 'generics' },
-  { id: 7, text: 'Что такое компактный конструктор (compact constructor) в Record?', topicId: 'generics' },
-  { id: 8, text: 'Можно ли объявлять статические поля и методы в Record?', topicId: 'generics' },
-  { id: 9, text: 'Являются ли поля Record финальными?', topicId: 'generics' },
-  { id: 10, text: 'Можно ли использовать Record как ключ в HashMap?', topicId: 'generics' },
-  { id: 11, text: 'Что такое дженерики (Generics) в Java?', topicId: 'generics' },
-  { id: 12, text: 'В чём преимущества использования дженериков?', topicId: 'generics' },
-  { id: 13, text: 'Что такое type erasure (стирание типов)?', topicId: 'generics' },
-  { id: 14, text: 'Можно ли создать массив дженерик-типа?', topicId: 'generics' },
-  { id: 15, text: 'Что такое bounded type parameters?', topicId: 'generics' },
-  { id: 16, text: 'В чём разница между <? extends T> и <? super T>?', topicId: 'generics' },
-  { id: 17, text: 'Что такое PECS (Producer Extends Consumer Super)?', topicId: 'generics' },
-  { id: 18, text: 'Можно ли использовать примитивные типы как параметры дженериков?', topicId: 'generics' },
-  { id: 19, text: 'Что такое raw types и почему их следует избегать?', topicId: 'generics' },
-  { id: 20, text: 'Что произойдёт при попытке создать экземпляр дженерик-типа через new T()?', topicId: 'generics' },
-  { id: 21, text: 'В чём разница между List<?> и List<Object>?', topicId: 'generics' },
-  { id: 22, text: 'Можно ли перегружать методы, отличающиеся только дженерик-параметрами?', topicId: 'generics' },
-  { id: 23, text: 'Что такое recursive type bound?', topicId: 'generics' },
-  { id: 24, text: 'Как работают дженерики с наследованием (является ли List<String> подтипом List<Object>)?', topicId: 'generics' },
-  { id: 25, text: 'Что такое bridge methods и зачем они нужны?', topicId: 'generics' },
-  { id: 26, text: 'Можно ли использовать несколько ограничений (bounds) для одного параметра типа?', topicId: 'generics' },
-  { id: 27, text: 'Как реализовать шаблон Singleton с помощью Record?', topicId: 'generics' },
+  // Records (1-10) → gr-records
+  { id: 1, text: 'Что такое Record в Java и с какой версии они доступны?', topicId: 'gr-records' },
+  { id: 2, text: 'В чём основные отличия Record от обычного класса?', topicId: 'gr-records' },
+  { id: 3, text: 'Можно ли наследоваться от Record или наследовать Record от другого класса?', topicId: 'gr-records' },
+  { id: 4, text: 'Можно ли добавлять дополнительные методы в Record?', topicId: 'gr-records' },
+  { id: 5, text: 'Какие методы автоматически генерируются для Record?', topicId: 'gr-records' },
+  { id: 6, text: 'Можно ли переопределить конструктор в Record?', topicId: 'gr-records' },
+  { id: 7, text: 'Что такое компактный конструктор (compact constructor) в Record?', topicId: 'gr-records' },
+  { id: 8, text: 'Можно ли объявлять статические поля и методы в Record?', topicId: 'gr-records' },
+  { id: 9, text: 'Являются ли поля Record финальными?', topicId: 'gr-records' },
+  { id: 10, text: 'Можно ли использовать Record как ключ в HashMap?', topicId: 'gr-records' },
+  // Generics (11-27) → gr-generics
+  { id: 11, text: 'Что такое дженерики (Generics) в Java?', topicId: 'gr-generics' },
+  { id: 12, text: 'В чём преимущества использования дженериков?', topicId: 'gr-generics' },
+  { id: 13, text: 'Что такое type erasure (стирание типов)?', topicId: 'gr-generics' },
+  { id: 14, text: 'Можно ли создать массив дженерик-типа?', topicId: 'gr-generics' },
+  { id: 15, text: 'Что такое bounded type parameters?', topicId: 'gr-generics' },
+  { id: 16, text: 'В чём разница между <? extends T> и <? super T>?', topicId: 'gr-generics' },
+  { id: 17, text: 'Что такое PECS (Producer Extends Consumer Super)?', topicId: 'gr-generics' },
+  { id: 18, text: 'Можно ли использовать примитивные типы как параметры дженериков?', topicId: 'gr-generics' },
+  { id: 19, text: 'Что такое raw types и почему их следует избегать?', topicId: 'gr-features' },
+  { id: 20, text: 'Что произойдёт при попытке создать экземпляр дженерик-типа через new T()?', topicId: 'gr-generics' },
+  { id: 21, text: 'В чём разница между List<?> и List<Object>?', topicId: 'gr-generics' },
+  { id: 22, text: 'Можно ли перегружать методы, отличающиеся только дженерик-параметрами?', topicId: 'gr-generics' },
+  { id: 23, text: 'Что такое recursive type bound?', topicId: 'gr-generics' },
+  { id: 24, text: 'Как работают дженерики с наследованием (является ли List<String> подтипом List<Object>)?', topicId: 'gr-generics' },
+  { id: 25, text: 'Что такое bridge methods и зачем они нужны?', topicId: 'gr-features' },
+  { id: 26, text: 'Можно ли использовать несколько ограничений (bounds) для одного параметра типа?', topicId: 'gr-features' },
+  { id: 27, text: 'Как реализовать шаблон Singleton с помощью Record?', topicId: 'gr-records' },
 
   // CompletableFuture и асинхронность (28-55) → completable-future
   { id: 28, text: 'Что такое CompletableFuture и чем он отличается от Future?', topicId: 'completable-future' },
@@ -191,36 +192,36 @@ export const QUESTIONS: Question[] = [
   { id: 260, text: 'Что такое readonly транзакция?', topicId: 'transactions' },
   { id: 261, text: 'Что произойдёт при вызове @Transactional метода из другого метода того же класса?', topicId: 'transactions' },
 
-  // HashMap / equals / hashCode (262-290) → collections
-  { id: 262, text: 'Как устроена HashMap внутри?', topicId: 'collections' },
-  { id: 263, text: 'Что такое bucket (корзина) в HashMap?', topicId: 'collections' },
-  { id: 264, text: 'Как HashMap определяет, в какой bucket положить элемент?', topicId: 'collections' },
-  { id: 265, text: 'Что такое коллизия в HashMap?', topicId: 'collections' },
-  { id: 266, text: 'Как HashMap обрабатывает коллизии?', topicId: 'collections' },
-  { id: 267, text: 'Что происходит при достижении 8 элементов в одном bucket?', topicId: 'collections' },
-  { id: 268, text: 'Что такое контракт equals() и hashCode()?', topicId: 'collections' },
-  { id: 269, text: 'Если два объекта равны по equals(), что можно сказать об их hashCode()?', topicId: 'collections' },
-  { id: 270, text: 'Если два объекта имеют одинаковый hashCode(), обязательно ли они равны по equals()?', topicId: 'collections' },
-  { id: 271, text: 'Что произойдёт, если переопределить equals() но не переопределить hashCode()?', topicId: 'collections' },
-  { id: 272, text: 'Что произойдёт, если переопределить hashCode() но не переопределить equals()?', topicId: 'collections' },
-  { id: 273, text: 'Можно ли использовать изменяемый объект как ключ в HashMap?', topicId: 'collections' },
-  { id: 274, text: 'Что случится, если изменить ключ после добавления в HashMap?', topicId: 'collections' },
-  { id: 275, text: 'Какие требования к ключу HashMap?', topicId: 'collections' },
-  { id: 276, text: 'Почему String часто используется как ключ в HashMap?', topicId: 'collections' },
-  { id: 277, text: 'Что такое load factor в HashMap?', topicId: 'collections' },
-  { id: 278, text: 'Что такое capacity в HashMap?', topicId: 'collections' },
-  { id: 279, text: 'Когда происходит rehashing в HashMap?', topicId: 'collections' },
-  { id: 280, text: 'Что происходит при rehashing?', topicId: 'collections' },
-  { id: 281, text: 'Какова временная сложность операций get() и put() в HashMap?', topicId: 'collections' },
-  { id: 282, text: 'Когда временная сложность может стать O(n)?', topicId: 'collections' },
-  { id: 283, text: 'Как работает HashMap в многопоточной среде?', topicId: 'collections' },
-  { id: 284, text: 'Что такое ConcurrentHashMap и чем он отличается от HashMap?', topicId: 'collections' },
-  { id: 285, text: 'Можно ли хранить null ключ в HashMap?', topicId: 'collections' },
-  { id: 286, text: 'Можно ли хранить null значение в HashMap?', topicId: 'collections' },
-  { id: 287, text: 'В чём разница между HashMap и Hashtable?', topicId: 'collections' },
-  { id: 288, text: 'Что такое WeakHashMap?', topicId: 'collections' },
-  { id: 289, text: 'Как правильно выбрать начальный capacity для HashMap?', topicId: 'collections' },
-  { id: 290, text: 'Что лучше: ArrayList или HashMap для хранения пар ключ-значение?', topicId: 'collections' },
+  // HashMap / equals / hashCode (262-290) → уровень тем (subtopics)
+  { id: 262, text: 'Как устроена HashMap внутри?', topicId: 'hm-internals' },
+  { id: 263, text: 'Что такое bucket (корзина) в HashMap?', topicId: 'hm-internals' },
+  { id: 264, text: 'Как HashMap определяет, в какой bucket положить элемент?', topicId: 'hm-internals' },
+  { id: 265, text: 'Что такое коллизия в HashMap?', topicId: 'hm-internals' },
+  { id: 266, text: 'Как HashMap обрабатывает коллизии?', topicId: 'hm-internals' },
+  { id: 267, text: 'Что происходит при достижении 8 элементов в одном bucket?', topicId: 'hm-internals' },
+  { id: 268, text: 'Что такое контракт equals() и hashCode()?', topicId: 'hm-contract' },
+  { id: 269, text: 'Если два объекта равны по equals(), что можно сказать об их hashCode()?', topicId: 'hm-contract' },
+  { id: 270, text: 'Если два объекта имеют одинаковый hashCode(), обязательно ли они равны по equals()?', topicId: 'hm-contract' },
+  { id: 271, text: 'Что произойдёт, если переопределить equals() но не переопределить hashCode()?', topicId: 'hm-contract' },
+  { id: 272, text: 'Что произойдёт, если переопределить hashCode() но не переопределить equals()?', topicId: 'hm-contract' },
+  { id: 273, text: 'Можно ли использовать изменяемый объект как ключ в HashMap?', topicId: 'hm-keys' },
+  { id: 274, text: 'Что случится, если изменить ключ после добавления в HashMap?', topicId: 'hm-keys' },
+  { id: 275, text: 'Какие требования к ключу HashMap?', topicId: 'hm-keys' },
+  { id: 276, text: 'Почему String часто используется как ключ в HashMap?', topicId: 'hm-keys' },
+  { id: 277, text: 'Что такое load factor в HashMap?', topicId: 'hm-performance' },
+  { id: 278, text: 'Что такое capacity в HashMap?', topicId: 'hm-performance' },
+  { id: 279, text: 'Когда происходит rehashing в HashMap?', topicId: 'hm-performance' },
+  { id: 280, text: 'Что происходит при rehashing?', topicId: 'hm-performance' },
+  { id: 281, text: 'Какова временная сложность операций get() и put() в HashMap?', topicId: 'hm-performance' },
+  { id: 282, text: 'Когда временная сложность может стать O(n)?', topicId: 'hm-performance' },
+  { id: 283, text: 'Как работает HashMap в многопоточной среде?', topicId: 'hm-threading' },
+  { id: 284, text: 'Что такое ConcurrentHashMap и чем он отличается от HashMap?', topicId: 'col-concurrent' },
+  { id: 285, text: 'Можно ли хранить null ключ в HashMap?', topicId: 'hm-threading' },
+  { id: 286, text: 'Можно ли хранить null значение в HashMap?', topicId: 'hm-threading' },
+  { id: 287, text: 'В чём разница между HashMap и Hashtable?', topicId: 'hm-threading' },
+  { id: 288, text: 'Что такое WeakHashMap?', topicId: 'col-map' },
+  { id: 289, text: 'Как правильно выбрать начальный capacity для HashMap?', topicId: 'hm-performance' },
+  { id: 290, text: 'Что лучше: ArrayList или HashMap для хранения пар ключ-значение?', topicId: 'col-map' },
 
   // Многопоточность (291-317) → threads, synchronization
   { id: 291, text: 'В чём разница между synchronized и volatile?', topicId: 'synchronization' },
@@ -363,37 +364,37 @@ export const QUESTIONS: Question[] = [
   { id: 420, text: 'Что такое @Qualifier?', topicId: 'spring-boot' },
   { id: 421, text: 'Что такое profiles в Spring?', topicId: 'spring-boot' },
 
-  // Коллекции (422-451) → collections
-  { id: 422, text: 'Какие основные интерфейсы Collection Framework?', topicId: 'collections' },
-  { id: 423, text: 'В чём разница между List, Set и Queue?', topicId: 'collections' },
-  { id: 424, text: 'В чём разница между ArrayList и LinkedList?', topicId: 'collections' },
-  { id: 425, text: 'Когда использовать ArrayList, а когда LinkedList?', topicId: 'collections' },
-  { id: 426, text: 'Какова временная сложность операций в ArrayList?', topicId: 'collections' },
-  { id: 427, text: 'Какова временная сложность операций в LinkedList?', topicId: 'collections' },
-  { id: 428, text: 'Что такое Vector и чем он отличается от ArrayList?', topicId: 'collections' },
-  { id: 429, text: 'Что такое Stack?', topicId: 'collections' },
-  { id: 430, text: 'Что такое Queue и какие реализации существуют?', topicId: 'collections' },
-  { id: 431, text: 'Что такое Deque?', topicId: 'collections' },
-  { id: 432, text: 'В чём разница между HashSet, LinkedHashSet и TreeSet?', topicId: 'collections' },
-  { id: 433, text: 'Как работает HashSet внутри?', topicId: 'collections' },
-  { id: 434, text: 'Что такое TreeSet и как он работает?', topicId: 'collections' },
-  { id: 435, text: 'Что такое Map и какие реализации существуют?', topicId: 'collections' },
-  { id: 436, text: 'В чём разница между HashMap, LinkedHashMap и TreeMap?', topicId: 'collections' },
-  { id: 437, text: 'Когда использовать TreeMap?', topicId: 'collections' },
-  { id: 438, text: 'Что такое WeakHashMap?', topicId: 'collections' },
-  { id: 439, text: 'Что такое ConcurrentHashMap?', topicId: 'collections' },
-  { id: 440, text: 'Как ConcurrentHashMap обеспечивает thread-safety?', topicId: 'collections' },
-  { id: 441, text: 'Что такое CopyOnWriteArrayList?', topicId: 'collections' },
-  { id: 442, text: 'Когда использовать synchronized collections?', topicId: 'collections' },
-  { id: 443, text: 'Как получить synchronized коллекцию?', topicId: 'collections' },
-  { id: 444, text: 'Что такое Collections.unmodifiableList()?', topicId: 'collections' },
-  { id: 445, text: 'В чём разница между Iterator и ListIterator?', topicId: 'collections' },
-  { id: 446, text: 'Что такое fail-fast и fail-safe итераторы?', topicId: 'collections' },
-  { id: 447, text: 'Что такое ConcurrentModificationException?', topicId: 'collections' },
-  { id: 448, text: 'Как правильно удалять элементы во время итерации?', topicId: 'collections' },
-  { id: 449, text: 'Что такое Comparable и Comparator?', topicId: 'collections' },
-  { id: 450, text: 'В чём разница между Comparable и Comparator?', topicId: 'collections' },
-  { id: 451, text: 'Какие операции поддерживает интерфейс Collection?', topicId: 'collections' },
+  // Коллекции (422-451) → уровень тем (subtopics)
+  { id: 422, text: 'Какие основные интерфейсы Collection Framework?', topicId: 'col-list' },
+  { id: 423, text: 'В чём разница между List, Set и Queue?', topicId: 'col-list' },
+  { id: 424, text: 'В чём разница между ArrayList и LinkedList?', topicId: 'col-list' },
+  { id: 425, text: 'Когда использовать ArrayList, а когда LinkedList?', topicId: 'col-list' },
+  { id: 426, text: 'Какова временная сложность операций в ArrayList?', topicId: 'col-list' },
+  { id: 427, text: 'Какова временная сложность операций в LinkedList?', topicId: 'col-list' },
+  { id: 428, text: 'Что такое Vector и чем он отличается от ArrayList?', topicId: 'col-list' },
+  { id: 429, text: 'Что такое Stack?', topicId: 'col-list' },
+  { id: 430, text: 'Что такое Queue и какие реализации существуют?', topicId: 'col-queue' },
+  { id: 431, text: 'Что такое Deque?', topicId: 'col-queue' },
+  { id: 432, text: 'В чём разница между HashSet, LinkedHashSet и TreeSet?', topicId: 'col-set' },
+  { id: 433, text: 'Как работает HashSet внутри?', topicId: 'col-set' },
+  { id: 434, text: 'Что такое TreeSet и как он работает?', topicId: 'col-set' },
+  { id: 435, text: 'Что такое Map и какие реализации существуют?', topicId: 'col-map' },
+  { id: 436, text: 'В чём разница между HashMap, LinkedHashMap и TreeMap?', topicId: 'col-map' },
+  { id: 437, text: 'Когда использовать TreeMap?', topicId: 'col-map' },
+  { id: 438, text: 'Что такое WeakHashMap?', topicId: 'col-map' },
+  { id: 439, text: 'Что такое ConcurrentHashMap?', topicId: 'col-concurrent' },
+  { id: 440, text: 'Как ConcurrentHashMap обеспечивает thread-safety?', topicId: 'col-concurrent' },
+  { id: 441, text: 'Что такое CopyOnWriteArrayList?', topicId: 'col-concurrent' },
+  { id: 442, text: 'Когда использовать synchronized collections?', topicId: 'col-concurrent' },
+  { id: 443, text: 'Как получить synchronized коллекцию?', topicId: 'col-concurrent' },
+  { id: 444, text: 'Что такое Collections.unmodifiableList()?', topicId: 'col-list' },
+  { id: 445, text: 'В чём разница между Iterator и ListIterator?', topicId: 'col-iterators' },
+  { id: 446, text: 'Что такое fail-fast и fail-safe итераторы?', topicId: 'col-iterators' },
+  { id: 447, text: 'Что такое ConcurrentModificationException?', topicId: 'col-iterators' },
+  { id: 448, text: 'Как правильно удалять элементы во время итерации?', topicId: 'col-iterators' },
+  { id: 449, text: 'Что такое Comparable и Comparator?', topicId: 'col-sorting' },
+  { id: 450, text: 'В чём разница между Comparable и Comparator?', topicId: 'col-sorting' },
+  { id: 451, text: 'Какие операции поддерживает интерфейс Collection?', topicId: 'col-list' },
 
   // Память и Garbage Collection (452-479) → memory-model, garbage-collection
   { id: 452, text: 'В чём разница между Heap и Stack?', topicId: 'memory-model' },
@@ -447,10 +448,212 @@ export const QUESTIONS: Question[] = [
   { id: 514, text: 'Зачем нужен ANALYZE?', topicId: 'indexes' },
   { id: 515, text: 'Что такое explain plan?', topicId: 'indexes' },
   { id: 516, text: 'Как оптимизировать медленные запросы?', topicId: 'indexes' },
+
+  // Микросервисы (78-103) → ms-*
+  { id: 78, text: 'Что такое паттерн Saga и когда его использовать?', topicId: 'ms-patterns' },
+  { id: 79, text: 'В чём разница между хореографией и оркестрацией в Saga?', topicId: 'ms-patterns' },
+  { id: 80, text: 'Как реализовать распределённые транзакции в микросервисах?', topicId: 'ms-patterns' },
+  { id: 81, text: 'Что такое компенсирующие транзакции?', topicId: 'ms-patterns' },
+  { id: 82, text: 'Что такое паттерн Circuit Breaker?', topicId: 'ms-patterns' },
+  { id: 83, text: 'Как работает Circuit Breaker и какие у него состояния?', topicId: 'ms-patterns' },
+  { id: 84, text: 'Что такое Service Discovery и зачем он нужен?', topicId: 'ms-infra' },
+  { id: 85, text: 'В чём разница между client-side и server-side discovery?', topicId: 'ms-infra' },
+  { id: 86, text: 'Что такое API Gateway и какие задачи он решает?', topicId: 'ms-infra' },
+  { id: 87, text: 'Что такое шардирование (sharding)?', topicId: 'ms-data' },
+  { id: 88, text: 'В чём разница между шардированием и партиционированием?', topicId: 'ms-data' },
+  { id: 89, text: 'Как реализовать горизонтальное масштабирование микросервисов?', topicId: 'ms-resilience' },
+  { id: 90, text: 'Что такое паттерн Database per Service?', topicId: 'ms-data' },
+  { id: 91, text: 'Какие проблемы возникают при использовании общей базы данных?', topicId: 'ms-data' },
+  { id: 92, text: 'Как организовать коммуникацию между микросервисами?', topicId: 'ms-communication' },
+  { id: 93, text: 'В чём разница между синхронной и асинхронной коммуникацией?', topicId: 'ms-communication' },
+  { id: 94, text: 'Как обеспечить отказоустойчивость микросервисов?', topicId: 'ms-resilience' },
+  { id: 95, text: 'Что такое паттерн Bulkhead?', topicId: 'ms-patterns' },
+  { id: 96, text: 'Что такое паттерн Retry и как его правильно использовать?', topicId: 'ms-patterns' },
+  { id: 97, text: 'Что такое exponential backoff?', topicId: 'ms-patterns' },
+  { id: 98, text: 'Как мониторить распределённую систему микросервисов?', topicId: 'ms-infra' },
+  { id: 99, text: 'Что такое distributed tracing?', topicId: 'ms-infra' },
+  { id: 100, text: 'Как реализовать аутентификацию и авторизацию в микросервисах?', topicId: 'ms-infra' },
+  { id: 101, text: 'Что такое паттерн Strangler Fig?', topicId: 'ms-resilience' },
+  { id: 102, text: 'Как тестировать микросервисы?', topicId: 'ms-resilience' },
+  { id: 103, text: 'Какие инструменты используются для оркестрации микросервисов?', topicId: 'ms-infra' },
+
+  // Kafka (134-163) → kf-*
+  { id: 134, text: 'Что такое топик (topic) в Kafka?', topicId: 'kf-topics' },
+  { id: 135, text: 'Что такое партиция (partition) и зачем она нужна?', topicId: 'kf-topics' },
+  { id: 136, text: 'Как данные распределяются по партициям?', topicId: 'kf-topics' },
+  { id: 137, text: 'Что такое ключ сообщения и как он влияет на партиционирование?', topicId: 'kf-topics' },
+  { id: 138, text: 'Что такое Consumer Group?', topicId: 'kf-consumer' },
+  { id: 139, text: 'Как работает балансировка консьюмеров в группе?', topicId: 'kf-consumer' },
+  { id: 140, text: 'Можно ли иметь больше консьюмеров, чем партиций?', topicId: 'kf-consumer' },
+  { id: 141, text: 'Что произойдёт при добавлении нового консьюмера в группу?', topicId: 'kf-consumer' },
+  { id: 142, text: 'Какие гарантии доставки сообщений предоставляет Kafka?', topicId: 'kf-delivery' },
+  { id: 143, text: 'В чём разница между at-most-once, at-least-once и exactly-once?', topicId: 'kf-delivery' },
+  { id: 144, text: 'Как настроить exactly-once семантику?', topicId: 'kf-delivery' },
+  { id: 145, text: 'Что такое offset в Kafka?', topicId: 'kf-offset' },
+  { id: 146, text: 'Как работает commit offset?', topicId: 'kf-offset' },
+  { id: 147, text: 'В чём разница между auto commit и manual commit?', topicId: 'kf-offset' },
+  { id: 148, text: 'Что такое rebalancing и когда он происходит?', topicId: 'kf-consumer' },
+  { id: 149, text: 'Что такое репликация в Kafka?', topicId: 'kf-replication' },
+  { id: 150, text: 'Что такое leader и follower реплики?', topicId: 'kf-replication' },
+  { id: 151, text: 'Что такое ISR (In-Sync Replicas)?', topicId: 'kf-replication' },
+  { id: 152, text: 'Как Kafka обеспечивает отказоустойчивость?', topicId: 'kf-replication' },
+  { id: 153, text: 'Что такое producer acknowledgment и какие режимы существуют (acks=0,1,all)?', topicId: 'kf-producer' },
+  { id: 154, text: 'Что такое batch в Kafka producer?', topicId: 'kf-producer' },
+  { id: 155, text: 'Как работает компрессия сообщений?', topicId: 'kf-producer' },
+  { id: 156, text: 'Что такое idempotent producer?', topicId: 'kf-producer' },
+  { id: 157, text: 'Как обрабатывать ошибки при чтении сообщений?', topicId: 'kf-errors' },
+  { id: 158, text: 'Что такое DLQ (Dead Letter Queue)?', topicId: 'kf-errors' },
+  { id: 159, text: 'Как мониторить lag консьюмера?', topicId: 'kf-consumer' },
+  { id: 160, text: 'Что такое retention policy?', topicId: 'kf-errors' },
+  { id: 161, text: 'Как удаляются старые сообщения из топика?', topicId: 'kf-errors' },
+  { id: 162, text: 'Можно ли читать сообщения из определённой партиции?', topicId: 'kf-consumer' },
+  { id: 163, text: 'Как реализовать фильтрацию сообщений на стороне консьюмера?', topicId: 'kf-consumer' },
+
+  // Иммутабельность (188-216) → im-*
+  { id: 188, text: 'Что такое иммутабельный (неизменяемый) объект?', topicId: 'im-create' },
+  { id: 189, text: 'Какие преимущества даёт использование иммутабельных объектов?', topicId: 'im-benefits' },
+  { id: 190, text: 'Как создать иммутабельный класс в Java?', topicId: 'im-create' },
+  { id: 191, text: 'Почему класс String является иммутабельным?', topicId: 'im-examples' },
+  { id: 192, text: 'Какие последствия иммутабельности String?', topicId: 'im-examples' },
+  { id: 193, text: 'Почему иммутабельные объекты thread-safe?', topicId: 'im-benefits' },
+  { id: 194, text: 'Что такое ключевое слово final и как оно помогает в создании иммутабельных классов?', topicId: 'im-create' },
+  { id: 195, text: 'Достаточно ли сделать все поля final для иммутабельности?', topicId: 'im-create' },
+  { id: 196, text: 'Что делать, если поле класса ссылается на мутабельный объект?', topicId: 'im-create' },
+  { id: 197, text: 'Что такое defensive copy (защитная копия)?', topicId: 'im-copy' },
+  { id: 198, text: 'Когда нужно делать defensive copy?', topicId: 'im-copy' },
+  { id: 199, text: 'Как защитить коллекцию от изменений?', topicId: 'im-collections' },
+  { id: 200, text: 'Что такое Collections.unmodifiableList() и как это работает?', topicId: 'im-collections' },
+  { id: 201, text: 'В чём разница между shallow copy и deep copy?', topicId: 'im-copy' },
+  { id: 202, text: 'Можно ли наследоваться от иммутабельного класса?', topicId: 'im-create' },
+  { id: 203, text: 'Почему иммутабельный класс должен быть final?', topicId: 'im-create' },
+  { id: 204, text: 'Что произойдёт, если переопределить геттер в подклассе иммутабельного класса?', topicId: 'im-create' },
+  { id: 205, text: 'Как работает String pool и как это связано с иммутабельностью?', topicId: 'im-examples' },
+  { id: 206, text: 'Можно ли изменить значение String через рефлексию?', topicId: 'im-examples' },
+  { id: 207, text: 'Что такое Record и как он помогает создавать иммутабельные классы?', topicId: 'im-examples' },
+  { id: 208, text: 'Почему LocalDate, LocalDateTime иммутабельны?', topicId: 'im-examples' },
+  { id: 209, text: 'В чём преимущества иммутабельных объектов для кэширования?', topicId: 'im-benefits' },
+  { id: 210, text: 'Как иммутабельность влияет на производительность?', topicId: 'im-benefits' },
+  { id: 211, text: 'Что такое persistent data structures?', topicId: 'im-collections' },
+  { id: 212, text: 'Есть ли недостатки у иммутабельных объектов?', topicId: 'im-benefits' },
+  { id: 213, text: 'Как реализовать Builder pattern для иммутабельного класса?', topicId: 'im-create' },
+  { id: 214, text: 'Можно ли использовать иммутабельные объекты как ключи в HashMap?', topicId: 'im-benefits' },
+  { id: 215, text: 'Что произойдёт, если изменить мутабельный ключ в HashMap?', topicId: 'im-benefits' },
+  { id: 216, text: 'Как правильно работать с коллекциями в иммутабельных классах?', topicId: 'im-collections' },
+
+  // Паттерны проектирования (480-495) → pt-*
+  { id: 480, text: 'Что такое паттерны проектирования?', topicId: 'pt-creational' },
+  { id: 481, text: 'Какие категории паттернов существуют?', topicId: 'pt-creational' },
+  { id: 482, text: 'Что такое Singleton?', topicId: 'pt-creational' },
+  { id: 483, text: 'Как реализовать потокобезопасный Singleton?', topicId: 'pt-creational' },
+  { id: 484, text: 'Что такое double-checked locking?', topicId: 'pt-creational' },
+  { id: 485, text: 'Каковы проблемы с Singleton?', topicId: 'pt-creational' },
+  { id: 486, text: 'В чём разница между Factory Method и Abstract Factory?', topicId: 'pt-creational' },
+  { id: 487, text: 'Когда использовать Builder?', topicId: 'pt-creational' },
+  { id: 488, text: 'Что такое Prototype pattern?', topicId: 'pt-creational' },
+  { id: 489, text: 'Когда использовать Strategy?', topicId: 'pt-behavioral' },
+  { id: 490, text: 'Как реализован Observer в Java?', topicId: 'pt-behavioral' },
+  { id: 491, text: 'В чём преимущество Decorator перед наследованием?', topicId: 'pt-structural' },
+  { id: 492, text: 'В чём разница между State и Strategy?', topicId: 'pt-behavioral' },
+  { id: 493, text: 'Какие типы Proxy существуют?', topicId: 'pt-structural' },
+  { id: 494, text: 'Что такое Iterator pattern?', topicId: 'pt-behavioral' },
+  { id: 495, text: 'Какие антипаттерны вы знаете?', topicId: 'pt-anti' },
 ];
 
+// Parent category mapping - shows all subtopic questions when clicking on a category
+// Also maps old topicIds to subtopics for backward compatibility
+const PARENT_TO_CHILDREN: Record<string, string[]> = {
+  // Collections category
+  'collections': ['col-list', 'col-set', 'col-queue', 'col-map', 'col-concurrent', 'col-iterators', 'col-sorting'],
+  // HashMap category
+  'hashmap': ['hm-internals', 'hm-contract', 'hm-keys', 'hm-performance', 'hm-threading'],
+  // Microservices
+  'microservices': ['ms-patterns', 'ms-infra', 'ms-data', 'ms-communication', 'ms-resilience'],
+  // Kafka
+  'kafka': ['kf-topics', 'kf-consumer', 'kf-delivery', 'kf-offset', 'kf-replication', 'kf-producer', 'kf-errors'],
+  // Immutability
+  'immutability': ['im-create', 'im-copy', 'im-collections', 'im-examples', 'im-benefits'],
+  // Patterns
+  'patterns': ['pt-creational', 'pt-structural', 'pt-behavioral', 'pt-anti'],
+  // Generics & Records
+  'generics-records': ['gr-generics', 'gr-features', 'gr-records'],
+  // CompletableFuture
+  'completable-future': ['cf-create', 'cf-chain', 'cf-combine', 'cf-errors', 'cf-async', 'cf-control'],
+  // OOP & SOLID
+  'oop-solid': ['os-solid', 'os-oop', 'os-cohesion'],
+  // Hibernate
+  'hibernate': ['hb-n1', 'hb-loading', 'hb-lifecycle', 'hb-cache', 'hb-operations', 'hb-locking', 'hb-relations', 'hb-queries'],
+  // Exceptions
+  'exceptions': ['ex-types', 'ex-handling', 'ex-custom', 'ex-practices'],
+  // Stream API
+  'stream-api': ['sa-operations', 'sa-collectors', 'sa-lazy', 'sa-parallel', 'sa-search'],
+  // Spring
+  'spring': ['sp-di', 'sp-bean', 'sp-proxy', 'sp-tx', 'sp-config', 'sp-annotations'],
+  // REST/HTTP
+  'rest-http': ['rh-methods', 'rh-idempotency', 'rh-status', 'rh-design', 'rh-headers'],
+  // Transactions
+  'transactions': ['tx-acid', 'tx-levels', 'tx-anomalies', 'tx-spring'],
+  // String
+  'string': ['str-pool', 'str-immutable', 'str-builder', 'str-methods', 'str-memory'],
+  // Memory & GC
+  'memory-gc': ['gc-memory', 'gc-collectors', 'gc-mechanics', 'gc-problems', 'gc-tools'],
+  // Docker/K8s
+  'docker-k8s': ['dk-docker', 'dk-k8s', 'dk-scaling', 'dk-config', 'dk-network'],
+  // Databases
+  'databases': ['db-indexes', 'db-join', 'db-grouping', 'db-window', 'db-postgres'],
+};
+
+// Map old topicIds to new subtopic IDs (for questions that use old IDs)
+const LEGACY_TOPIC_MAP: Record<string, string> = {
+  'oop': 'os-solid',
+  'hibernate': 'hb-n1',
+  'exceptions': 'ex-types',
+  'stream-api': 'sa-operations',
+  'spring-core': 'sp-di',
+  'spring-boot': 'sp-config',
+  'spring-mvc': 'rh-methods',
+  'transactions': 'tx-acid',
+  'syntax-basics': 'str-pool',
+  'memory-model': 'gc-memory',
+  'garbage-collection': 'gc-mechanics',
+  'gc-types': 'gc-collectors',
+  'profiling': 'gc-tools',
+  'docker': 'dk-docker',
+  'indexes': 'db-indexes',
+  'sql-basics': 'db-join',
+  'completable-future': 'cf-create',
+  'synchronization': 'mt-sync',
+  'atomic': 'mt-atomic',
+  'executors': 'mt-pools',
+  'threads': 'mt-basics',
+};
+
 export const getQuestionsByTopicId = (topicId: string): Question[] => {
-  return QUESTIONS.filter((q) => q.topicId === topicId);
+  // Direct match - question topicId matches requested ID
+  const direct = QUESTIONS.filter((q) => q.topicId === topicId);
+  if (direct.length > 0) return direct;
+
+  // Parent match - get all questions from child topics
+  const childIds = PARENT_TO_CHILDREN[topicId];
+  if (childIds) {
+    return QUESTIONS.filter((q) => childIds.includes(q.topicId));
+  }
+
+  // Legacy mapping - map old topicId to new subtopic and find questions
+  const legacyId = LEGACY_TOPIC_MAP[topicId];
+  if (legacyId) {
+    const legacyQuestions = QUESTIONS.filter((q) => q.topicId === legacyId);
+    if (legacyQuestions.length > 0) return legacyQuestions;
+  }
+
+  // Check if any question uses this topicId directly (for legacy questions)
+  // Also check parent categories that might have questions with old topicIds
+  const questionsWithOldId = QUESTIONS.filter((q) => {
+    const mappedId = LEGACY_TOPIC_MAP[q.topicId];
+    return mappedId === topicId || q.topicId === topicId;
+  });
+  if (questionsWithOldId.length > 0) return questionsWithOldId;
+
+  return [];
 };
 
 // Precomputed question counts per topic - eliminates repeated filtering

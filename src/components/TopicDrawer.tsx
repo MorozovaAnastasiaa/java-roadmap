@@ -6,7 +6,7 @@ import { META_TEXT_COLOR } from '../constants/colors';
 
 const { Text } = Typography;
 
-// Find topic name from graph data
+// Find topic name from graph data (full hierarchy)
 const findTopicName = (topicId: string): string | null => {
   // Check if it's a category
   const category = TOPICS_DATA.find(t => t.id === topicId);

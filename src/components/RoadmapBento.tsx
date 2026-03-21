@@ -100,7 +100,7 @@ const ZoneProgressBar = ({ zone }: { zone: ZoneConfig }) => {
   );
 };
 
-// Item block (подтема) - with zone color for learned status
+// Item block (подтема) - click toggles status directly (no drawer)
 const ItemBlock = ({
   id,
   name,
@@ -110,20 +110,24 @@ const ItemBlock = ({
   name: string;
   zoneGlow: string;
 }) => {
-  const selectTopic = useAppStore((state) => state.selectTopic);
-  const progress = useAppStore((state) => state.progress);
+  const { progress, setProgress } = useAppStore();
   const status: ProgressStatus = progress[id] || 'not_started';
+  const isLearned = status === 'learned';
   // Use zone color for learned status
-  const colors = status === 'learned' ? getLearnedColors(zoneGlow) : STATUS_COLORS.not_started;
+  const colors = isLearned ? getLearnedColors(zoneGlow) : STATUS_COLORS.not_started;
+
+  const toggleStatus = () => {
+    setProgress(id, isLearned ? 'not_started' : 'learned');
+  };
 
   return (
     <div
       className="topic-block"
-      onClick={() => selectTopic(id)}
+      onClick={toggleStatus}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          selectTopic(id);
+          toggleStatus();
         }
       }}
       tabIndex={0}
