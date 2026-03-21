@@ -62,28 +62,28 @@ export const QUESTIONS: Question[] = [
   { id: 55, text: 'Как реализовать retry логику с помощью CompletableFuture?', topicId: 'completable-future' },
 
   // ООП и SOLID (56-77) → oop
-  { id: 56, text: 'Что такое принцип Single Responsibility и как его применять?', topicId: 'oop' },
-  { id: 57, text: 'Приведите пример нарушения принципа Single Responsibility', topicId: 'oop' },
-  { id: 58, text: 'Что такое принцип Open/Closed?', topicId: 'oop' },
-  { id: 59, text: 'Как рефакторить код, нарушающий принцип Open/Closed?', topicId: 'oop' },
-  { id: 60, text: 'Что такое принцип Liskov Substitution?', topicId: 'oop' },
-  { id: 61, text: 'Приведите пример нарушения принципа Liskov Substitution', topicId: 'oop' },
-  { id: 62, text: 'Что такое принцип Interface Segregation?', topicId: 'oop' },
-  { id: 63, text: 'Что такое принцип Dependency Inversion?', topicId: 'oop' },
-  { id: 64, text: 'Зачем вообще нужны принципы SOLID?', topicId: 'oop' },
-  { id: 65, text: 'Что такое композиция и наследование?', topicId: 'oop' },
-  { id: 66, text: 'В каких случаях лучше использовать композицию вместо наследования?', topicId: 'oop' },
-  { id: 67, text: 'Что такое делегирование в ООП?', topicId: 'oop' },
-  { id: 68, text: 'Как принцип Single Responsibility связан с cohesion?', topicId: 'oop' },
-  { id: 69, text: 'Что произойдёт, если класс имеет несколько причин для изменения?', topicId: 'oop' },
-  { id: 70, text: 'Как SOLID помогает в тестировании кода?', topicId: 'oop' },
-  { id: 71, text: 'Как принцип Dependency Inversion связан с Dependency Injection?', topicId: 'oop' },
-  { id: 72, text: 'Что такое Law of Demeter (принцип наименьшего знания)?', topicId: 'oop' },
-  { id: 73, text: 'Как рефакторить God Object (божественный объект)?', topicId: 'oop' },
-  { id: 74, text: 'Как SOLID принципы помогают при расширении функционала?', topicId: 'oop' },
-  { id: 75, text: 'Можно ли следовать всем принципам SOLID одновременно?', topicId: 'oop' },
-  { id: 76, text: 'Как определить, что класс имеет одну ответственность?', topicId: 'oop' },
-  { id: 77, text: 'Какие антипаттерны противоречат SOLID принципам?', topicId: 'oop' },
+  { id: 56, text: 'Что такое принцип Single Responsibility и как его применять?', topicId: 'os-oop' },
+  { id: 57, text: 'Приведите пример нарушения принципа Single Responsibility', topicId: 'os-oop' },
+  { id: 58, text: 'Что такое принцип Open/Closed?', topicId: 'os-oop' },
+  { id: 59, text: 'Как рефакторить код, нарушающий принцип Open/Closed?', topicId: 'os-oop' },
+  { id: 60, text: 'Что такое принцип Liskov Substitution?', topicId: 'os-oop' },
+  { id: 61, text: 'Приведите пример нарушения принципа Liskov Substitution', topicId: 'os-oop' },
+  { id: 62, text: 'Что такое принцип Interface Segregation?', topicId: 'os-oop' },
+  { id: 63, text: 'Что такое принцип Dependency Inversion?', topicId: 'os-oop' },
+  { id: 64, text: 'Зачем вообще нужны принципы SOLID?', topicId: 'os-oop' },
+  { id: 65, text: 'Что такое композиция и наследование?', topicId: 'os-oop' },
+  { id: 66, text: 'В каких случаях лучше использовать композицию вместо наследования?', topicId: 'os-oop' },
+  { id: 67, text: 'Что такое делегирование в ООП?', topicId: 'os-oop' },
+  { id: 68, text: 'Как принцип Single Responsibility связан с cohesion?', topicId: 'os-oop' },
+  { id: 69, text: 'Что произойдёт, если класс имеет несколько причин для изменения?', topicId: 'os-oop' },
+  { id: 70, text: 'Как SOLID помогает в тестировании кода?', topicId: 'os-oop' },
+  { id: 71, text: 'Как принцип Dependency Inversion связан с Dependency Injection?', topicId: 'os-oop' },
+  { id: 72, text: 'Что такое Law of Demeter (принцип наименьшего знания)?', topicId: 'os-oop' },
+  { id: 73, text: 'Как рефакторить God Object (божественный объект)?', topicId: 'os-oop' },
+  { id: 74, text: 'Как SOLID принципы помогают при расширении функционала?', topicId: 'os-oop' },
+  { id: 75, text: 'Можно ли следовать всем принципам SOLID одновременно?', topicId: 'os-oop' },
+  { id: 76, text: 'Как определить, что класс имеет одну ответственность?', topicId: 'os-oop' },
+  { id: 77, text: 'Какие антипаттерны противоречат SOLID принципам?', topicId: 'os-oop' },
 
   // Hibernate / JPA (104-133) → hibernate
   { id: 104, text: 'Что такое проблема N+1 и как её решить?', topicId: 'hibernate' },
@@ -118,55 +118,55 @@ export const QUESTIONS: Question[] = [
   { id: 133, text: 'Какие типы наследования поддерживает JPA?', topicId: 'hibernate' },
 
   // Docker / Kubernetes (164-187) → docker
-  { id: 164, text: 'Что такое контейнеризация и зачем она нужна?', topicId: 'docker' },
-  { id: 165, text: 'В чём отличие контейнера от виртуальной машины?', topicId: 'docker' },
-  { id: 166, text: 'Что такое Dockerfile?', topicId: 'docker' },
-  { id: 167, text: 'Какие основные инструкции используются в Dockerfile?', topicId: 'docker' },
-  { id: 168, text: 'В чём разница между CMD и ENTRYPOINT?', topicId: 'docker' },
-  { id: 169, text: 'Что такое multi-stage build?', topicId: 'docker' },
-  { id: 170, text: 'Что такое Docker Compose?', topicId: 'docker' },
-  { id: 171, text: 'Что такое Kubernetes и зачем он нужен?', topicId: 'docker' },
-  { id: 172, text: 'Что такое Pod в Kubernetes?', topicId: 'docker' },
-  { id: 173, text: 'Что такое Node в Kubernetes?', topicId: 'docker' },
-  { id: 174, text: 'Что такое Service в Kubernetes?', topicId: 'docker' },
-  { id: 175, text: 'Какие типы Service существуют (ClusterIP, NodePort, LoadBalancer)?', topicId: 'docker' },
-  { id: 176, text: 'Что такое ReplicaSet?', topicId: 'docker' },
-  { id: 177, text: 'Как происходит масштабирование в Kubernetes?', topicId: 'docker' },
-  { id: 178, text: 'Что такое HorizontalPodAutoscaler?', topicId: 'docker' },
-  { id: 179, text: 'В чём разница между ConfigMap и Secret?', topicId: 'docker' },
-  { id: 180, text: 'Что такое liveness probe?', topicId: 'docker' },
-  { id: 181, text: 'Что такое readiness probe?', topicId: 'docker' },
-  { id: 182, text: 'Зачем нужны health checks?', topicId: 'docker' },
-  { id: 183, text: 'Что такое Ingress в Kubernetes?', topicId: 'docker' },
-  { id: 184, text: 'Что такое namespace?', topicId: 'docker' },
-  { id: 185, text: 'Как организовать rolling update в Kubernetes?', topicId: 'docker' },
-  { id: 186, text: 'Что такое StatefulSet и когда его использовать?', topicId: 'docker' },
-  { id: 187, text: 'Как мониторить приложения в Kubernetes?', topicId: 'docker' },
+  { id: 164, text: 'Что такое контейнеризация и зачем она нужна?', topicId: 'dk-docker' },
+  { id: 165, text: 'В чём отличие контейнера от виртуальной машины?', topicId: 'dk-docker' },
+  { id: 166, text: 'Что такое Dockerfile?', topicId: 'dk-docker' },
+  { id: 167, text: 'Какие основные инструкции используются в Dockerfile?', topicId: 'dk-docker' },
+  { id: 168, text: 'В чём разница между CMD и ENTRYPOINT?', topicId: 'dk-docker' },
+  { id: 169, text: 'Что такое multi-stage build?', topicId: 'dk-docker' },
+  { id: 170, text: 'Что такое Docker Compose?', topicId: 'dk-docker' },
+  { id: 171, text: 'Что такое Kubernetes и зачем он нужен?', topicId: 'dk-docker' },
+  { id: 172, text: 'Что такое Pod в Kubernetes?', topicId: 'dk-docker' },
+  { id: 173, text: 'Что такое Node в Kubernetes?', topicId: 'dk-docker' },
+  { id: 174, text: 'Что такое Service в Kubernetes?', topicId: 'dk-docker' },
+  { id: 175, text: 'Какие типы Service существуют (ClusterIP, NodePort, LoadBalancer)?', topicId: 'dk-docker' },
+  { id: 176, text: 'Что такое ReplicaSet?', topicId: 'dk-docker' },
+  { id: 177, text: 'Как происходит масштабирование в Kubernetes?', topicId: 'dk-docker' },
+  { id: 178, text: 'Что такое HorizontalPodAutoscaler?', topicId: 'dk-docker' },
+  { id: 179, text: 'В чём разница между ConfigMap и Secret?', topicId: 'dk-docker' },
+  { id: 180, text: 'Что такое liveness probe?', topicId: 'dk-docker' },
+  { id: 181, text: 'Что такое readiness probe?', topicId: 'dk-docker' },
+  { id: 182, text: 'Зачем нужны health checks?', topicId: 'dk-docker' },
+  { id: 183, text: 'Что такое Ingress в Kubernetes?', topicId: 'dk-docker' },
+  { id: 184, text: 'Что такое namespace?', topicId: 'dk-docker' },
+  { id: 185, text: 'Как организовать rolling update в Kubernetes?', topicId: 'dk-docker' },
+  { id: 186, text: 'Что такое StatefulSet и когда его использовать?', topicId: 'dk-docker' },
+  { id: 187, text: 'Как мониторить приложения в Kubernetes?', topicId: 'dk-docker' },
 
   // String (217-239) → syntax-basics
-  { id: 217, text: 'Как работает String Pool?', topicId: 'syntax-basics' },
-  { id: 218, text: 'В чём разница между созданием String через литерал и через new?', topicId: 'syntax-basics' },
-  { id: 219, text: 'Когда стоит использовать intern()?', topicId: 'syntax-basics' },
-  { id: 220, text: 'Почему String является иммутабельным?', topicId: 'syntax-basics' },
-  { id: 221, text: 'Когда использовать StringBuilder, а когда StringBuffer?', topicId: 'syntax-basics' },
-  { id: 222, text: 'Почему StringBuffer медленнее StringBuilder?', topicId: 'syntax-basics' },
-  { id: 223, text: 'Что происходит при конкатенации строк через оператор +?', topicId: 'syntax-basics' },
-  { id: 224, text: 'Как компилятор Java оптимизирует конкатенацию строк?', topicId: 'syntax-basics' },
-  { id: 225, text: 'Можно ли использовать == для сравнения String?', topicId: 'syntax-basics' },
-  { id: 226, text: 'В чём разница между == и equals() для String?', topicId: 'syntax-basics' },
-  { id: 227, text: 'Где хранится String Pool (в какой области памяти)?', topicId: 'syntax-basics' },
-  { id: 228, text: 'Может ли String Pool вызвать OutOfMemoryError?', topicId: 'syntax-basics' },
-  { id: 229, text: 'Что делает метод substring() и как он работал до Java 7?', topicId: 'syntax-basics' },
-  { id: 230, text: 'Почему изменили реализацию substring() в Java 7?', topicId: 'syntax-basics' },
-  { id: 231, text: 'Как работает метод split()?', topicId: 'syntax-basics' },
-  { id: 232, text: 'В чём особенность метода replace() vs replaceAll()?', topicId: 'syntax-basics' },
-  { id: 233, text: 'Что такое String encoding (кодировка)?', topicId: 'syntax-basics' },
-  { id: 234, text: 'Как правильно конвертировать String в byte[] и обратно?', topicId: 'syntax-basics' },
-  { id: 235, text: 'Что такое compact strings в Java 9+?', topicId: 'syntax-basics' },
-  { id: 236, text: 'Как узнать, сколько памяти занимает String?', topicId: 'syntax-basics' },
-  { id: 237, text: 'Можно ли изменить содержимое String через рефлексию?', topicId: 'syntax-basics' },
-  { id: 238, text: 'Что такое String deduplication в G1 GC?', topicId: 'syntax-basics' },
-  { id: 239, text: 'Почему String implements Comparable и CharSequence?', topicId: 'syntax-basics' },
+  { id: 217, text: 'Как работает String Pool?', topicId: 'string' },
+  { id: 218, text: 'В чём разница между созданием String через литерал и через new?', topicId: 'string' },
+  { id: 219, text: 'Когда стоит использовать intern()?', topicId: 'string' },
+  { id: 220, text: 'Почему String является иммутабельным?', topicId: 'string' },
+  { id: 221, text: 'Когда использовать StringBuilder, а когда StringBuffer?', topicId: 'string' },
+  { id: 222, text: 'Почему StringBuffer медленнее StringBuilder?', topicId: 'string' },
+  { id: 223, text: 'Что происходит при конкатенации строк через оператор +?', topicId: 'string' },
+  { id: 224, text: 'Как компилятор Java оптимизирует конкатенацию строк?', topicId: 'string' },
+  { id: 225, text: 'Можно ли использовать == для сравнения String?', topicId: 'string' },
+  { id: 226, text: 'В чём разница между == и equals() для String?', topicId: 'string' },
+  { id: 227, text: 'Где хранится String Pool (в какой области памяти)?', topicId: 'string' },
+  { id: 228, text: 'Может ли String Pool вызвать OutOfMemoryError?', topicId: 'string' },
+  { id: 229, text: 'Что делает метод substring() и как он работал до Java 7?', topicId: 'string' },
+  { id: 230, text: 'Почему изменили реализацию substring() в Java 7?', topicId: 'string' },
+  { id: 231, text: 'Как работает метод split()?', topicId: 'string' },
+  { id: 232, text: 'В чём особенность метода replace() vs replaceAll()?', topicId: 'string' },
+  { id: 233, text: 'Что такое String encoding (кодировка)?', topicId: 'string' },
+  { id: 234, text: 'Как правильно конвертировать String в byte[] и обратно?', topicId: 'string' },
+  { id: 235, text: 'Что такое compact strings в Java 9+?', topicId: 'string' },
+  { id: 236, text: 'Как узнать, сколько памяти занимает String?', topicId: 'string' },
+  { id: 237, text: 'Можно ли изменить содержимое String через рефлексию?', topicId: 'string' },
+  { id: 238, text: 'Что такое String deduplication в G1 GC?', topicId: 'string' },
+  { id: 239, text: 'Почему String implements Comparable и CharSequence?', topicId: 'string' },
 
   // Транзакции (240-261) → transactions
   { id: 240, text: 'Расшифруйте каждую букву ACID', topicId: 'transactions' },
@@ -224,33 +224,33 @@ export const QUESTIONS: Question[] = [
   { id: 290, text: 'Что лучше: ArrayList или HashMap для хранения пар ключ-значение?', topicId: 'col-map' },
 
   // Многопоточность (291-317) → threads, synchronization
-  { id: 291, text: 'В чём разница между synchronized и volatile?', topicId: 'synchronization' },
-  { id: 292, text: 'Что такое happens-before relationship?', topicId: 'synchronization' },
-  { id: 293, text: 'Что такое visibility problem?', topicId: 'synchronization' },
-  { id: 294, text: 'Что такое монитор (monitor) в Java?', topicId: 'synchronization' },
-  { id: 295, text: 'Как работает synchronized на уровне монитора?', topicId: 'synchronization' },
-  { id: 296, text: 'В чём разница между synchronized методом и synchronized блоком?', topicId: 'synchronization' },
-  { id: 297, text: 'Что такое reentrant lock?', topicId: 'synchronization' },
-  { id: 298, text: 'Что такое Atomic классы?', topicId: 'atomic' },
-  { id: 299, text: 'Что такое CAS (Compare-And-Swap)?', topicId: 'atomic' },
-  { id: 300, text: 'Как работают AtomicInteger, AtomicLong?', topicId: 'atomic' },
-  { id: 301, text: 'В чём преимущество Atomic классов перед synchronized?', topicId: 'atomic' },
-  { id: 302, text: 'Что такое пул потоков (Thread Pool)?', topicId: 'executors' },
-  { id: 303, text: 'Какие типы Thread Pool существуют в Java?', topicId: 'executors' },
-  { id: 304, text: 'Что делает ExecutorService?', topicId: 'executors' },
-  { id: 305, text: 'В чём разница между Executors.newFixedThreadPool() и newCachedThreadPool()?', topicId: 'executors' },
-  { id: 306, text: 'Что такое ForkJoinPool?', topicId: 'executors' },
-  { id: 307, text: 'Что такое deadlock (взаимная блокировка)?', topicId: 'threads' },
-  { id: 308, text: 'Какие условия необходимы для возникновения deadlock?', topicId: 'threads' },
-  { id: 309, text: 'Как предотвратить deadlock?', topicId: 'threads' },
-  { id: 310, text: 'Что такое race condition?', topicId: 'threads' },
-  { id: 311, text: 'Как избежать race condition?', topicId: 'threads' },
-  { id: 312, text: 'Что такое Virtual Threads в Java 21?', topicId: 'threads' },
-  { id: 313, text: 'В чём преимущества Virtual Threads перед обычными потоками?', topicId: 'threads' },
-  { id: 314, text: 'Когда стоит использовать Virtual Threads?', topicId: 'threads' },
-  { id: 315, text: 'Что такое structured concurrency?', topicId: 'threads' },
-  { id: 316, text: 'В чём разница между Thread и Runnable?', topicId: 'threads' },
-  { id: 317, text: 'Что такое Callable и Future?', topicId: 'threads' },
+  { id: 291, text: 'В чём разница между synchronized и volatile?', topicId: 'mt-sync' },
+  { id: 292, text: 'Что такое happens-before relationship?', topicId: 'mt-sync' },
+  { id: 293, text: 'Что такое visibility problem?', topicId: 'mt-sync' },
+  { id: 294, text: 'Что такое монитор (monitor) в Java?', topicId: 'mt-sync' },
+  { id: 295, text: 'Как работает synchronized на уровне монитора?', topicId: 'mt-sync' },
+  { id: 296, text: 'В чём разница между synchronized методом и synchronized блоком?', topicId: 'mt-sync' },
+  { id: 297, text: 'Что такое reentrant lock?', topicId: 'mt-sync' },
+  { id: 298, text: 'Что такое Atomic классы?', topicId: 'mt-atomic' },
+  { id: 299, text: 'Что такое CAS (Compare-And-Swap)?', topicId: 'mt-atomic' },
+  { id: 300, text: 'Как работают AtomicInteger, AtomicLong?', topicId: 'mt-atomic' },
+  { id: 301, text: 'В чём преимущество Atomic классов перед synchronized?', topicId: 'mt-atomic' },
+  { id: 302, text: 'Что такое пул потоков (Thread Pool)?', topicId: 'mt-pools' },
+  { id: 303, text: 'Какие типы Thread Pool существуют в Java?', topicId: 'mt-pools' },
+  { id: 304, text: 'Что делает ExecutorService?', topicId: 'mt-pools' },
+  { id: 305, text: 'В чём разница между Executors.newFixedThreadPool() и newCachedThreadPool()?', topicId: 'mt-pools' },
+  { id: 306, text: 'Что такое ForkJoinPool?', topicId: 'mt-pools' },
+  { id: 307, text: 'Что такое deadlock (взаимная блокировка)?', topicId: 'mt-basics' },
+  { id: 308, text: 'Какие условия необходимы для возникновения deadlock?', topicId: 'mt-basics' },
+  { id: 309, text: 'Как предотвратить deadlock?', topicId: 'mt-basics' },
+  { id: 310, text: 'Что такое race condition?', topicId: 'mt-basics' },
+  { id: 311, text: 'Как избежать race condition?', topicId: 'mt-basics' },
+  { id: 312, text: 'Что такое Virtual Threads в Java 21?', topicId: 'mt-basics' },
+  { id: 313, text: 'В чём преимущества Virtual Threads перед обычными потоками?', topicId: 'mt-basics' },
+  { id: 314, text: 'Когда стоит использовать Virtual Threads?', topicId: 'mt-basics' },
+  { id: 315, text: 'Что такое structured concurrency?', topicId: 'mt-basics' },
+  { id: 316, text: 'В чём разница между Thread и Runnable?', topicId: 'mt-basics' },
+  { id: 317, text: 'Что такое Callable и Future?', topicId: 'mt-basics' },
 
   // Stream API (318-346) → stream-api
   { id: 318, text: 'Какие преимущества даёт использование Stream API?', topicId: 'stream-api' },
@@ -315,54 +315,54 @@ export const QUESTIONS: Question[] = [
   { id: 375, text: 'Что такое exception chaining?', topicId: 'exceptions' },
 
   // REST / HTTP (376-392) → spring-mvc
-  { id: 376, text: 'Что такое REST?', topicId: 'spring-mvc' },
-  { id: 377, text: 'Что означает Stateless в контексте REST?', topicId: 'spring-mvc' },
-  { id: 378, text: 'Какие основные HTTP методы используются в REST?', topicId: 'spring-mvc' },
-  { id: 379, text: 'В чём разница между PUT и PATCH?', topicId: 'spring-mvc' },
-  { id: 380, text: 'Что такое идемпотентность (idempotency)?', topicId: 'spring-mvc' },
-  { id: 381, text: 'Какие HTTP методы идемпотентны?', topicId: 'spring-mvc' },
-  { id: 382, text: 'Почему GET и DELETE идемпотентны?', topicId: 'spring-mvc' },
-  { id: 383, text: 'Является ли POST идемпотентным?', topicId: 'spring-mvc' },
-  { id: 384, text: 'Какие HTTP статус коды вы знаете?', topicId: 'spring-mvc' },
-  { id: 385, text: 'В чём разница между 401 и 403?', topicId: 'spring-mvc' },
-  { id: 386, text: 'Что такое RESTful API дизайн?', topicId: 'spring-mvc' },
-  { id: 387, text: 'Как правильно именовать REST endpoints?', topicId: 'spring-mvc' },
-  { id: 388, text: 'Стоит ли использовать глаголы в URL?', topicId: 'spring-mvc' },
-  { id: 389, text: 'Что такое HATEOAS?', topicId: 'spring-mvc' },
-  { id: 390, text: 'Как организовать версионирование REST API?', topicId: 'spring-mvc' },
-  { id: 391, text: 'Что такое Content-Type header?', topicId: 'spring-mvc' },
-  { id: 392, text: 'Что такое Accept header?', topicId: 'spring-mvc' },
+  { id: 376, text: 'Что такое REST?', topicId: 'rest-http' },
+  { id: 377, text: 'Что означает Stateless в контексте REST?', topicId: 'rest-http' },
+  { id: 378, text: 'Какие основные HTTP методы используются в REST?', topicId: 'rest-http' },
+  { id: 379, text: 'В чём разница между PUT и PATCH?', topicId: 'rest-http' },
+  { id: 380, text: 'Что такое идемпотентность (idempotency)?', topicId: 'rest-http' },
+  { id: 381, text: 'Какие HTTP методы идемпотентны?', topicId: 'rest-http' },
+  { id: 382, text: 'Почему GET и DELETE идемпотентны?', topicId: 'rest-http' },
+  { id: 383, text: 'Является ли POST идемпотентным?', topicId: 'rest-http' },
+  { id: 384, text: 'Какие HTTP статус коды вы знаете?', topicId: 'rest-http' },
+  { id: 385, text: 'В чём разница между 401 и 403?', topicId: 'rest-http' },
+  { id: 386, text: 'Что такое RESTful API дизайн?', topicId: 'rest-http' },
+  { id: 387, text: 'Как правильно именовать REST endpoints?', topicId: 'rest-http' },
+  { id: 388, text: 'Стоит ли использовать глаголы в URL?', topicId: 'rest-http' },
+  { id: 389, text: 'Что такое HATEOAS?', topicId: 'rest-http' },
+  { id: 390, text: 'Как организовать версионирование REST API?', topicId: 'rest-http' },
+  { id: 391, text: 'Что такое Content-Type header?', topicId: 'rest-http' },
+  { id: 392, text: 'Что такое Accept header?', topicId: 'rest-http' },
 
   // Spring / Spring Boot (393-421) → spring-core, spring-boot
-  { id: 393, text: 'Что такое Dependency Injection?', topicId: 'spring-core' },
-  { id: 394, text: 'В чём разница между constructor, setter и field injection?', topicId: 'spring-core' },
-  { id: 395, text: 'Какой тип injection рекомендуется использовать и почему?', topicId: 'spring-core' },
-  { id: 396, text: 'Что такое Bean в Spring?', topicId: 'spring-core' },
-  { id: 397, text: 'Как создать Bean в Spring?', topicId: 'spring-core' },
-  { id: 398, text: 'Что такое Bean Lifecycle?', topicId: 'spring-core' },
-  { id: 399, text: 'Какие этапы жизненного цикла Bean?', topicId: 'spring-core' },
-  { id: 400, text: 'Что такое BeanPostProcessor?', topicId: 'spring-core' },
-  { id: 401, text: 'Что делают методы с аннотацией @PostConstruct и @PreDestroy?', topicId: 'spring-core' },
-  { id: 402, text: 'Что такое scope Bean?', topicId: 'spring-core' },
-  { id: 403, text: 'Какие scope существуют в Spring?', topicId: 'spring-core' },
-  { id: 404, text: 'В чём разница между singleton и prototype scope?', topicId: 'spring-core' },
-  { id: 405, text: 'Что такое прокси в Spring?', topicId: 'spring-core' },
-  { id: 406, text: 'Когда Spring создаёт прокси?', topicId: 'spring-core' },
-  { id: 407, text: 'Что такое AOP (Aspect-Oriented Programming)?', topicId: 'spring-core' },
-  { id: 408, text: 'Что такое аспект, advice, pointcut, join point?', topicId: 'spring-core' },
-  { id: 409, text: 'Что делает аннотация @Transactional?', topicId: 'spring-core' },
-  { id: 410, text: 'Почему @Transactional не работает при self-invocation?', topicId: 'spring-core' },
-  { id: 411, text: 'Как решить проблему с self-invocation?', topicId: 'spring-core' },
-  { id: 412, text: 'Что такое автоконфигурация в Spring Boot?', topicId: 'spring-boot' },
-  { id: 413, text: 'Как работает @SpringBootApplication?', topicId: 'spring-boot' },
-  { id: 414, text: 'Что такое starter в Spring Boot?', topicId: 'spring-boot' },
-  { id: 415, text: 'Что делает аннотация @ComponentScan?', topicId: 'spring-boot' },
-  { id: 416, text: 'Что такое @Configuration класс?', topicId: 'spring-boot' },
-  { id: 417, text: 'В чём разница между @Component, @Service, @Repository, @Controller?', topicId: 'spring-boot' },
-  { id: 418, text: 'Что делает аннотация @Autowired?', topicId: 'spring-boot' },
-  { id: 419, text: 'Что делать, если есть несколько бинов одного типа?', topicId: 'spring-boot' },
-  { id: 420, text: 'Что такое @Qualifier?', topicId: 'spring-boot' },
-  { id: 421, text: 'Что такое profiles в Spring?', topicId: 'spring-boot' },
+  { id: 393, text: 'Что такое Dependency Injection?', topicId: 'sp-di' },
+  { id: 394, text: 'В чём разница между constructor, setter и field injection?', topicId: 'sp-di' },
+  { id: 395, text: 'Какой тип injection рекомендуется использовать и почему?', topicId: 'sp-di' },
+  { id: 396, text: 'Что такое Bean в Spring?', topicId: 'sp-di' },
+  { id: 397, text: 'Как создать Bean в Spring?', topicId: 'sp-di' },
+  { id: 398, text: 'Что такое Bean Lifecycle?', topicId: 'sp-di' },
+  { id: 399, text: 'Какие этапы жизненного цикла Bean?', topicId: 'sp-di' },
+  { id: 400, text: 'Что такое BeanPostProcessor?', topicId: 'sp-di' },
+  { id: 401, text: 'Что делают методы с аннотацией @PostConstruct и @PreDestroy?', topicId: 'sp-di' },
+  { id: 402, text: 'Что такое scope Bean?', topicId: 'sp-di' },
+  { id: 403, text: 'Какие scope существуют в Spring?', topicId: 'sp-di' },
+  { id: 404, text: 'В чём разница между singleton и prototype scope?', topicId: 'sp-di' },
+  { id: 405, text: 'Что такое прокси в Spring?', topicId: 'sp-di' },
+  { id: 406, text: 'Когда Spring создаёт прокси?', topicId: 'sp-di' },
+  { id: 407, text: 'Что такое AOP (Aspect-Oriented Programming)?', topicId: 'sp-di' },
+  { id: 408, text: 'Что такое аспект, advice, pointcut, join point?', topicId: 'sp-di' },
+  { id: 409, text: 'Что делает аннотация @Transactional?', topicId: 'sp-di' },
+  { id: 410, text: 'Почему @Transactional не работает при self-invocation?', topicId: 'sp-di' },
+  { id: 411, text: 'Как решить проблему с self-invocation?', topicId: 'sp-di' },
+  { id: 412, text: 'Что такое автоконфигурация в Spring Boot?', topicId: 'sp-config' },
+  { id: 413, text: 'Как работает @SpringBootApplication?', topicId: 'sp-config' },
+  { id: 414, text: 'Что такое starter в Spring Boot?', topicId: 'sp-config' },
+  { id: 415, text: 'Что делает аннотация @ComponentScan?', topicId: 'sp-config' },
+  { id: 416, text: 'Что такое @Configuration класс?', topicId: 'sp-config' },
+  { id: 417, text: 'В чём разница между @Component, @Service, @Repository, @Controller?', topicId: 'sp-config' },
+  { id: 418, text: 'Что делает аннотация @Autowired?', topicId: 'sp-config' },
+  { id: 419, text: 'Что делать, если есть несколько бинов одного типа?', topicId: 'sp-config' },
+  { id: 420, text: 'Что такое @Qualifier?', topicId: 'sp-config' },
+  { id: 421, text: 'Что такое profiles в Spring?', topicId: 'sp-config' },
 
   // Коллекции (422-451) → уровень тем (subtopics)
   { id: 422, text: 'Какие основные интерфейсы Collection Framework?', topicId: 'col-list' },
@@ -397,57 +397,57 @@ export const QUESTIONS: Question[] = [
   { id: 451, text: 'Какие операции поддерживает интерфейс Collection?', topicId: 'col-list' },
 
   // Память и Garbage Collection (452-479) → memory-model, garbage-collection
-  { id: 452, text: 'В чём разница между Heap и Stack?', topicId: 'memory-model' },
-  { id: 453, text: 'Что хранится в Heap?', topicId: 'memory-model' },
-  { id: 454, text: 'Что хранится в Stack?', topicId: 'memory-model' },
-  { id: 455, text: 'Что такое Garbage Collection?', topicId: 'garbage-collection' },
-  { id: 456, text: 'Когда объект становится кандидатом на удаление GC?', topicId: 'garbage-collection' },
-  { id: 457, text: 'Что такое утечка памяти в Java?', topicId: 'memory-model' },
-  { id: 458, text: 'Как может возникнуть утечка памяти в Java?', topicId: 'memory-model' },
-  { id: 459, text: 'Что такое поколения в GC (young, old, metaspace)?', topicId: 'garbage-collection' },
-  { id: 460, text: 'Что такое Young Generation?', topicId: 'garbage-collection' },
-  { id: 461, text: 'Что такое Old Generation (Tenured)?', topicId: 'garbage-collection' },
-  { id: 462, text: 'Что такое Metaspace (или PermGen)?', topicId: 'garbage-collection' },
-  { id: 463, text: 'Какие алгоритмы GC существуют?', topicId: 'garbage-collection' },
-  { id: 464, text: 'Что такое G1 GC?', topicId: 'gc-types' },
-  { id: 465, text: 'Что такое ZGC?', topicId: 'gc-types' },
-  { id: 466, text: 'Что такое Shenandoah GC?', topicId: 'gc-types' },
-  { id: 467, text: 'Что такое stop-the-world?', topicId: 'garbage-collection' },
-  { id: 468, text: 'Какие GC минимизируют stop-the-world паузы?', topicId: 'gc-types' },
-  { id: 469, text: 'Что такое параметры -Xms и -Xmx?', topicId: 'memory-model' },
-  { id: 470, text: 'Что произойдёт при OutOfMemoryError?', topicId: 'memory-model' },
-  { id: 471, text: 'Какие типы OutOfMemoryError существуют?', topicId: 'memory-model' },
-  { id: 472, text: 'Что такое memory leak и как его обнаружить?', topicId: 'memory-model' },
-  { id: 473, text: 'Какие инструменты помогают анализировать память?', topicId: 'profiling' },
-  { id: 474, text: 'Что такое heap dump?', topicId: 'profiling' },
-  { id: 475, text: 'Как получить heap dump?', topicId: 'profiling' },
-  { id: 476, text: 'Что такое GC roots?', topicId: 'garbage-collection' },
-  { id: 477, text: 'Что такое reachability в контексте GC?', topicId: 'garbage-collection' },
-  { id: 478, text: 'Можно ли вручную вызвать GC?', topicId: 'garbage-collection' },
-  { id: 479, text: 'Почему не стоит вызывать System.gc()?', topicId: 'garbage-collection' },
+  { id: 452, text: 'В чём разница между Heap и Stack?', topicId: 'gc-memory' },
+  { id: 453, text: 'Что хранится в Heap?', topicId: 'gc-memory' },
+  { id: 454, text: 'Что хранится в Stack?', topicId: 'gc-memory' },
+  { id: 455, text: 'Что такое Garbage Collection?', topicId: 'gc-collectors' },
+  { id: 456, text: 'Когда объект становится кандидатом на удаление GC?', topicId: 'gc-collectors' },
+  { id: 457, text: 'Что такое утечка памяти в Java?', topicId: 'gc-memory' },
+  { id: 458, text: 'Как может возникнуть утечка памяти в Java?', topicId: 'gc-memory' },
+  { id: 459, text: 'Что такое поколения в GC (young, old, metaspace)?', topicId: 'gc-collectors' },
+  { id: 460, text: 'Что такое Young Generation?', topicId: 'gc-collectors' },
+  { id: 461, text: 'Что такое Old Generation (Tenured)?', topicId: 'gc-collectors' },
+  { id: 462, text: 'Что такое Metaspace (или PermGen)?', topicId: 'gc-collectors' },
+  { id: 463, text: 'Какие алгоритмы GC существуют?', topicId: 'gc-collectors' },
+  { id: 464, text: 'Что такое G1 GC?', topicId: 'gc-collectors' },
+  { id: 465, text: 'Что такое ZGC?', topicId: 'gc-collectors' },
+  { id: 466, text: 'Что такое Shenandoah GC?', topicId: 'gc-collectors' },
+  { id: 467, text: 'Что такое stop-the-world?', topicId: 'gc-collectors' },
+  { id: 468, text: 'Какие GC минимизируют stop-the-world паузы?', topicId: 'gc-collectors' },
+  { id: 469, text: 'Что такое параметры -Xms и -Xmx?', topicId: 'gc-memory' },
+  { id: 470, text: 'Что произойдёт при OutOfMemoryError?', topicId: 'gc-memory' },
+  { id: 471, text: 'Какие типы OutOfMemoryError существуют?', topicId: 'gc-memory' },
+  { id: 472, text: 'Что такое memory leak и как его обнаружить?', topicId: 'gc-memory' },
+  { id: 473, text: 'Какие инструменты помогают анализировать память?', topicId: 'gc-tools' },
+  { id: 474, text: 'Что такое heap dump?', topicId: 'gc-tools' },
+  { id: 475, text: 'Как получить heap dump?', topicId: 'gc-tools' },
+  { id: 476, text: 'Что такое GC roots?', topicId: 'gc-collectors' },
+  { id: 477, text: 'Что такое reachability в контексте GC?', topicId: 'gc-collectors' },
+  { id: 478, text: 'Можно ли вручную вызвать GC?', topicId: 'gc-collectors' },
+  { id: 479, text: 'Почему не стоит вызывать System.gc()?', topicId: 'gc-collectors' },
 
   // Базы данных / SQL / PostgreSQL (496-516) → sql-basics, indexes
-  { id: 496, text: 'Для чего нужны индексы?', topicId: 'indexes' },
-  { id: 497, text: 'Как работает B-tree индекс?', topicId: 'indexes' },
-  { id: 498, text: 'Что такое составной индекс?', topicId: 'indexes' },
-  { id: 499, text: 'Когда стоит создавать индекс?', topicId: 'indexes' },
-  { id: 500, text: 'Какие недостатки индексов?', topicId: 'indexes' },
-  { id: 501, text: 'Что такое кардинальность индекса?', topicId: 'indexes' },
-  { id: 502, text: 'Какие типы JOIN существуют?', topicId: 'sql-basics' },
-  { id: 503, text: 'В чём разница между INNER JOIN и LEFT JOIN?', topicId: 'sql-basics' },
-  { id: 504, text: 'Что лучше: JOIN или подзапрос?', topicId: 'sql-basics' },
-  { id: 505, text: 'Что такое коррелированный подзапрос?', topicId: 'sql-basics' },
-  { id: 506, text: 'В чём разница между WHERE и HAVING?', topicId: 'sql-basics' },
-  { id: 507, text: 'Что делает GROUP BY?', topicId: 'sql-basics' },
-  { id: 508, text: 'Когда использовать HAVING?', topicId: 'sql-basics' },
-  { id: 509, text: 'Что такое оконные функции (Window Functions)?', topicId: 'sql-basics' },
-  { id: 510, text: 'Что делает ROW_NUMBER()?', topicId: 'sql-basics' },
-  { id: 511, text: 'Что делает RANK() и DENSE_RANK()?', topicId: 'sql-basics' },
-  { id: 512, text: 'Как работает MVCC в PostgreSQL?', topicId: 'sql-basics' },
-  { id: 513, text: 'Что такое VACUUM в PostgreSQL?', topicId: 'sql-basics' },
-  { id: 514, text: 'Зачем нужен ANALYZE?', topicId: 'indexes' },
-  { id: 515, text: 'Что такое explain plan?', topicId: 'indexes' },
-  { id: 516, text: 'Как оптимизировать медленные запросы?', topicId: 'indexes' },
+  { id: 496, text: 'Для чего нужны индексы?', topicId: 'db-indexes' },
+  { id: 497, text: 'Как работает B-tree индекс?', topicId: 'db-indexes' },
+  { id: 498, text: 'Что такое составной индекс?', topicId: 'db-indexes' },
+  { id: 499, text: 'Когда стоит создавать индекс?', topicId: 'db-indexes' },
+  { id: 500, text: 'Какие недостатки индексов?', topicId: 'db-indexes' },
+  { id: 501, text: 'Что такое кардинальность индекса?', topicId: 'db-indexes' },
+  { id: 502, text: 'Какие типы JOIN существуют?', topicId: 'databases' },
+  { id: 503, text: 'В чём разница между INNER JOIN и LEFT JOIN?', topicId: 'databases' },
+  { id: 504, text: 'Что лучше: JOIN или подзапрос?', topicId: 'databases' },
+  { id: 505, text: 'Что такое коррелированный подзапрос?', topicId: 'databases' },
+  { id: 506, text: 'В чём разница между WHERE и HAVING?', topicId: 'databases' },
+  { id: 507, text: 'Что делает GROUP BY?', topicId: 'databases' },
+  { id: 508, text: 'Когда использовать HAVING?', topicId: 'databases' },
+  { id: 509, text: 'Что такое оконные функции (Window Functions)?', topicId: 'databases' },
+  { id: 510, text: 'Что делает ROW_NUMBER()?', topicId: 'databases' },
+  { id: 511, text: 'Что делает RANK() и DENSE_RANK()?', topicId: 'databases' },
+  { id: 512, text: 'Как работает MVCC в PostgreSQL?', topicId: 'databases' },
+  { id: 513, text: 'Что такое VACUUM в PostgreSQL?', topicId: 'databases' },
+  { id: 514, text: 'Зачем нужен ANALYZE?', topicId: 'db-indexes' },
+  { id: 515, text: 'Что такое explain plan?', topicId: 'db-indexes' },
+  { id: 516, text: 'Как оптимизировать медленные запросы?', topicId: 'db-indexes' },
 
   // Микросервисы (78-103) → ms-*
   { id: 78, text: 'Что такое паттерн Saga и когда его использовать?', topicId: 'ms-patterns' },
@@ -600,6 +600,133 @@ const PARENT_TO_CHILDREN: Record<string, string[]> = {
   'docker-k8s': ['dk-docker', 'dk-k8s', 'dk-scaling', 'dk-config', 'dk-network'],
   // Databases
   'databases': ['db-indexes', 'db-join', 'db-grouping', 'db-window', 'db-postgres'],
+  // Concurrency (was missing!)
+  'concurrency': ['mt-sync', 'mt-locks', 'mt-atomic', 'mt-pools', 'mt-new', 'mt-basics'],
+
+  // === SUBTOPIC TO CHILDREN (for nested items) ===
+  // Spring subtopics
+  'sp-di': ['sp-constructor', 'sp-setter', 'sp-field'],
+  'sp-bean': ['sp-lifecycle', 'sp-postconstruct', 'sp-bpp', 'sp-scope'],
+  'sp-proxy': ['sp-spring-proxy', 'sp-aop', 'sp-aop-terms'],
+  'sp-tx': ['sp-transactional', 'sp-self-invocation'],
+  'sp-config': ['sp-boot-app', 'sp-autoconfig', 'sp-starters', 'sp-componentscan', 'sp-profiles'],
+  'sp-annotations': ['sp-component', 'sp-service', 'sp-repository', 'sp-controller', 'sp-autowired', 'sp-qualifier'],
+  // OOP/SOLID subtopics
+  'os-solid': ['os-srp', 'os-ocp', 'os-lsp', 'os-isp', 'os-dip'],
+  'os-oop': ['os-composition', 'os-delegation', 'os-demeter'],
+  'os-cohesion': ['os-high-cohesion', 'os-low-coupling'],
+  // Concurrency subtopics
+  'mt-sync': ['mt-synchronized', 'mt-volatile', 'mt-happens-before', 'mt-monitor'],
+  'mt-locks': ['mt-reentrantlock', 'mt-deadlock', 'mt-race-condition'],
+  'mt-atomic': ['mt-atomicinteger', 'mt-atomiclong', 'mt-cas'],
+  'mt-pools': ['mt-executor', 'mt-fixed', 'mt-cached', 'mt-forkjoin'],
+  'mt-new': ['mt-virtual', 'mt-structured'],
+  'mt-basics': ['mt-thread-runnable', 'mt-callable', 'mt-future'],
+  // Transactions subtopics
+  'tx-acid': ['tx-atomicity', 'tx-consistency', 'tx-isolation', 'tx-durability'],
+  'tx-levels': ['tx-read-uncommitted', 'tx-read-committed', 'tx-repeatable-read', 'tx-serializable'],
+  'tx-anomalies': ['tx-dirty-read', 'tx-non-repeatable', 'tx-phantom', 'tx-lost-update'],
+  'tx-spring': ['tx-transactional', 'tx-propagation', 'tx-rollback', 'tx-readonly'],
+  // GC subtopics
+  'gc-memory': ['gc-heap-stack', 'gc-young', 'gc-old', 'gc-metaspace'],
+  'gc-collectors': ['gc-g1', 'gc-zgc', 'gc-shenandoah'],
+  'gc-mechanics': ['gc-stw', 'gc-roots', 'gc-reachability'],
+  'gc-problems': ['gc-memory-leak', 'gc-oom', 'gc-oom-types'],
+  'gc-tools': ['gc-heap-dump', 'gc-xms-xmx', 'gc-system-gc'],
+  // String subtopics
+  'str-pool': ['str-pool-base', 'str-intern', 'str-literal-vs-new'],
+  'str-immutable': ['str-why-immutable', 'str-equals'],
+  'str-builder': ['str-stringbuilder', 'str-stringbuffer', 'str-concat'],
+  'str-methods': ['str-substring', 'str-split', 'str-replace'],
+  'str-memory': ['str-compact', 'str-dedup'],
+  // Patterns subtopics
+  'pt-creational': ['pt-singleton', 'pt-singleton-ts', 'pt-dcl', 'pt-factory', 'pt-abstract-factory', 'pt-builder', 'pt-prototype'],
+  'pt-structural': ['pt-decorator', 'pt-proxy'],
+  'pt-behavioral': ['pt-strategy', 'pt-observer', 'pt-state', 'pt-iterator'],
+  'pt-anti': ['pt-god-object', 'pt-spaghetti'],
+  // Hibernate subtopics
+  'hb-n1': ['hb-n1-queries', 'hb-join-fetch', 'hb-batchsize'],
+  'hb-loading': ['hb-lazy-eager', 'hb-lazy-init', 'hb-fetch-strategies'],
+  'hb-lifecycle': ['hb-transient', 'hb-persistent', 'hb-detached', 'hb-removed'],
+  'hb-cache': ['hb-l1-cache', 'hb-l2-cache', 'hb-dirty-checking'],
+  'hb-operations': ['hb-persist-merge', 'hb-flush', 'hb-refresh'],
+  'hb-locking': ['hb-optimistic', 'hb-pessimistic'],
+  'hb-relations': ['hb-onetomany', 'hb-cascade', 'hb-orphan', 'hb-bidirectional'],
+  'hb-queries': ['hb-jpql', 'hb-criteria', 'hb-projection'],
+  // Exceptions subtopics
+  'ex-types': ['ex-checked-unchecked', 'ex-error-exception', 'ex-throwable'],
+  'ex-handling': ['ex-try-catch', 'ex-try-with', 'ex-autocloseable', 'ex-multicatch'],
+  'ex-custom': ['ex-extend-exception', 'ex-extend-runtime'],
+  'ex-practices': ['ex-stacktrace', 'ex-chaining', 'ex-suppressed', 'ex-logging'],
+  // Stream API subtopics
+  'sa-operations': ['sa-intermediate-terminal', 'sa-filter', 'sa-map', 'sa-flatmap', 'sa-collect', 'sa-reduce'],
+  'sa-collectors': ['sa-tolist', 'sa-tomap', 'sa-groupingby'],
+  'sa-lazy': ['sa-lazy-eval', 'sa-short-circuit'],
+  'sa-parallel': ['sa-parallel-op', 'sa-forkjoin', 'sa-side-effects'],
+  'sa-search': ['sa-findfirst', 'sa-findany', 'sa-match'],
+  // REST/HTTP subtopics
+  'rh-methods': ['rh-get', 'rh-post', 'rh-put', 'rh-patch', 'rh-delete'],
+  'rh-idempotency': ['rh-idempotent-methods', 'rh-post-not-idempotent'],
+  'rh-status': ['rh-status-codes', 'rh-401-403'],
+  'rh-design': ['rh-stateless', 'rh-naming', 'rh-hateoas', 'rh-versioning'],
+  'rh-headers': ['rh-content-type', 'rh-accept'],
+  // Collections subtopics
+  'col-list': ['col-arraylist', 'col-linkedlist', 'col-al-vs-ll', 'col-vector', 'col-stack'],
+  'col-set': ['col-hashset', 'col-linkedhashset', 'col-treeset'],
+  'col-queue': ['col-queue-base', 'col-deque', 'col-priorityqueue'],
+  'col-map': ['col-hashmap', 'col-linkedhashmap', 'col-treemap', 'col-weakhashmap'],
+  'col-concurrent': ['col-concurrenthashmap', 'col-copyonwritearraylist', 'col-synchronized'],
+  'col-iterators': ['col-iterator', 'col-listiterator', 'col-failfast', 'col-cme'],
+  'col-sorting': ['col-comparable', 'col-comparator'],
+  // Databases subtopics
+  'db-indexes': ['db-btree', 'db-composite-index', 'db-cardinality'],
+  'db-join': ['db-inner-join', 'db-left-join', 'db-subquery', 'db-correlated'],
+  'db-grouping': ['db-where-having', 'db-group-by'],
+  'db-window': ['db-row-number', 'db-rank', 'db-dense-rank'],
+  'db-postgres': ['db-mvcc', 'db-vacuum', 'db-analyze', 'db-explain'],
+  // HashMap subtopics
+  'hm-internals': ['hm-buckets', 'hm-collisions', 'hm-treeify'],
+  'hm-contract': ['hm-equals-hashcode'],
+  'hm-keys': ['hm-mutable-key', 'hm-string-key', 'hm-key-requirements'],
+  'hm-performance': ['hm-load-factor', 'hm-capacity', 'hm-rehashing'],
+  'hm-threading': ['hm-vs-hashtable', 'hm-null'],
+  // Docker/K8s subtopics
+  'dk-docker': ['dk-container-vm', 'dk-dockerfile', 'dk-cmd-entrypoint', 'dk-multistage', 'dk-compose'],
+  'dk-k8s': ['dk-pod', 'dk-node', 'dk-service', 'dk-replicaset', 'dk-statefulset'],
+  'dk-scaling': ['dk-hpa', 'dk-rolling'],
+  'dk-config': ['dk-configmap', 'dk-secret', 'dk-liveness', 'dk-readiness'],
+  'dk-network': ['dk-ingress', 'dk-namespace'],
+  // Kafka subtopics
+  'kf-topics': ['kf-topic', 'kf-partition', 'kf-message-key'],
+  'kf-consumer': ['kf-consumer-group', 'kf-rebalancing', 'kf-consumer-lag'],
+  'kf-delivery': ['kf-at-most-once', 'kf-at-least-once', 'kf-exactly-once'],
+  'kf-offset': ['kf-offset-base', 'kf-commit'],
+  'kf-replication': ['kf-leader-follower', 'kf-isr'],
+  'kf-producer': ['kf-acks', 'kf-batching', 'kf-idempotent'],
+  'kf-errors': ['kf-dlq', 'kf-retention'],
+  // Microservices subtopics
+  'ms-patterns': ['ms-saga', 'ms-circuit-breaker', 'ms-bulkhead', 'ms-retry', 'ms-backoff'],
+  'ms-infra': ['ms-discovery', 'ms-gateway', 'ms-tracing'],
+  'ms-data': ['ms-db-per-service', 'ms-sharding', 'ms-partitioning'],
+  'ms-communication': ['ms-sync-async', 'ms-compensating'],
+  'ms-resilience': ['ms-strangler', 'ms-horizontal'],
+  // Immutability subtopics
+  'im-create': ['im-final-class', 'im-final-fields', 'im-defensive', 'im-no-setters'],
+  'im-copy': ['im-shallow', 'im-deep'],
+  'im-collections': ['im-unmodifiable', 'im-of'],
+  'im-examples': ['im-string', 'im-localdate', 'im-record'],
+  'im-benefits': ['im-thread-safety', 'im-caching', 'im-hashmap-keys'],
+  // Generics subtopics
+  'gr-generics': ['gr-erasure', 'gr-bounded', 'gr-wildcards', 'gr-pecs'],
+  'gr-features': ['gr-raw', 'gr-bridge', 'gr-multiple-bounds'],
+  'gr-records': ['gr-record', 'gr-compact-constructor', 'gr-record-limits', 'gr-record-hashmap'],
+  // CompletableFuture subtopics
+  'cf-create': ['cf-supplyasync', 'cf-completed', 'cf-future-vs-cf'],
+  'cf-chain': ['cf-thenapply', 'cf-thencompose', 'cf-thenaccept', 'cf-thenrun'],
+  'cf-combine': ['cf-thencombine', 'cf-allof', 'cf-anyof'],
+  'cf-errors': ['cf-exceptionally', 'cf-handle', 'cf-whencomplete'],
+  'cf-async': ['cf-thenapplyasync', 'cf-custom-executor', 'cf-commonpool'],
+  'cf-control': ['cf-join-get', 'cf-ortimeout', 'cf-cancel'],
 };
 
 // Map old topicIds to new subtopic IDs (for questions that use old IDs)
@@ -627,15 +754,63 @@ const LEGACY_TOPIC_MAP: Record<string, string> = {
   'threads': 'mt-basics',
 };
 
+// Build reverse mapping: child -> parent
+const CHILD_TO_PARENT: Record<string, string> = {};
+for (const [parent, children] of Object.entries(PARENT_TO_CHILDREN)) {
+  for (const child of children) {
+    CHILD_TO_PARENT[child] = parent;
+  }
+}
+
+// Recursively get all descendant topic IDs
+const getAllDescendantIds = (topicId: string, visited = new Set<string>()): string[] => {
+  if (visited.has(topicId)) return [];
+  visited.add(topicId);
+
+  const childIds = PARENT_TO_CHILDREN[topicId] || [];
+  const allIds = [...childIds];
+
+  for (const childId of childIds) {
+    allIds.push(...getAllDescendantIds(childId, visited));
+  }
+
+  return allIds;
+};
+
+// Get parent chain up to root
+const getParentChain = (topicId: string): string[] => {
+  const chain: string[] = [];
+  let current = CHILD_TO_PARENT[topicId];
+  while (current) {
+    chain.push(current);
+    current = CHILD_TO_PARENT[current];
+  }
+  return chain;
+};
+
 export const getQuestionsByTopicId = (topicId: string): Question[] => {
   // Direct match - question topicId matches requested ID
   const direct = QUESTIONS.filter((q) => q.topicId === topicId);
   if (direct.length > 0) return direct;
 
-  // Parent match - get all questions from child topics
-  const childIds = PARENT_TO_CHILDREN[topicId];
-  if (childIds) {
-    return QUESTIONS.filter((q) => childIds.includes(q.topicId));
+  // Recursive descendant match - get all questions from ALL descendant topics
+  const allDescendantIds = getAllDescendantIds(topicId);
+  if (allDescendantIds.length > 0) {
+    const questions = QUESTIONS.filter((q) => allDescendantIds.includes(q.topicId));
+    if (questions.length > 0) return questions;
+  }
+
+  // Fallback: search parent chain for questions
+  const parentChain = getParentChain(topicId);
+  for (const parentId of parentChain) {
+    // Check parent's direct questions
+    const parentDirect = QUESTIONS.filter((q) => q.topicId === parentId);
+    if (parentDirect.length > 0) return parentDirect;
+
+    // Check parent's all descendants
+    const parentDescendants = getAllDescendantIds(parentId);
+    const parentQuestions = QUESTIONS.filter((q) => parentDescendants.includes(q.topicId));
+    if (parentQuestions.length > 0) return parentQuestions;
   }
 
   // Legacy mapping - map old topicId to new subtopic and find questions
@@ -644,14 +819,6 @@ export const getQuestionsByTopicId = (topicId: string): Question[] => {
     const legacyQuestions = QUESTIONS.filter((q) => q.topicId === legacyId);
     if (legacyQuestions.length > 0) return legacyQuestions;
   }
-
-  // Check if any question uses this topicId directly (for legacy questions)
-  // Also check parent categories that might have questions with old topicIds
-  const questionsWithOldId = QUESTIONS.filter((q) => {
-    const mappedId = LEGACY_TOPIC_MAP[q.topicId];
-    return mappedId === topicId || q.topicId === topicId;
-  });
-  if (questionsWithOldId.length > 0) return questionsWithOldId;
 
   return [];
 };
